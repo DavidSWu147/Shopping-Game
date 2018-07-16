@@ -17,10 +17,17 @@ textRectObj1.center = (40,20)
 screen.fill(white)
 screen.blit(textObj1,textRectObj1) #画出了budget
 
-textObj2 = 
+textObj2 = fontObj.render('now:',True,black,bisque)
+textRectObj2 = textObj2.get_rect()
+textRectObj2.center = (30,80)
+screen.blit(textObj2,textRectObj2)
 
+textObj3 = fontObj.render('shopping list:',True,black,bisque)
+textRectObj3 = textObj3.get_rect()
+textRectObj3.center = (60,140)
+screen.blit(textObj3,textRectObj3)
 
-pygame.draw.line(screen,black,(80,0),(80,600)) #画了一条线
+pygame.draw.line(screen,black,(140,0),(140,600)) #画了一条线
 
 
 while True:   #running = True  
@@ -29,5 +36,4 @@ while True:   #running = True
             pygame.quit()
             sys.exit()
     pygame.display.update()
-
 
