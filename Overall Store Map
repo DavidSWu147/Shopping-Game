@@ -1,4 +1,4 @@
-#Overall Store Map
+#Overall Store Map, created by Kate Wilson
 import pygame, math
 from pygame import *
 import time
