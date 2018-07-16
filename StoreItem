@@ -1,5 +1,5 @@
 class product:
-    Pricecount= 0
+    
     def __init__(self, name, image, price, Color, X, Y):
         self.name= name
         self.image= pygame.image.load(image)
