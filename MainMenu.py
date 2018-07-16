@@ -1,6 +1,4 @@
-import sys, pygame, time
-
-
+import sys, pygame
 
 class MainMenu(object):  
 
@@ -9,18 +7,18 @@ class MainMenu(object):
 
         self.displaySize = (900,600)
         self.screen = pygame.display.set_mode(self.displaySize)
-        self.panelName = "Main Menu"
+        self.panelName = 'Main Menu'
         pygame.display.set_caption(self.panelName)
 
         self.BLACK = (0,0,0)
         self.WHITE = (255,255,255)
+        self.fontMaster = None
 
     def __str__(self):
         return self.panelName
 
     def run(self):
-        self.screen.fill(self.WHITE)
-        pygame.display.update()
+        self.draw()
         
         self.hasExited = False
         while not self.hasExited:
@@ -28,9 +26,21 @@ class MainMenu(object):
                 if event.type == pygame.QUIT:
                     self.hasExited = True
 
-            self.screen.fill(self.WHITE)
-            pygame.display.update()
+            self.draw()            
 
+    def draw(self):
+        self.screen.fill(self.WHITE)    
+
+        self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
+        self.text = self.fontMaster.render('Dollar Chopper',False,self.BLACK)
+        self.screen.blit(self.text,(250,100))
+
+        pygame.draw.rect(self.screen,self.BLACK,[300,300,300,100],5)
+        self.fontMaster = pygame.font.SysFont('Calibri',36)
+        self.text = self.fontMaster.render('Click Here to Enter',False,self.BLACK)
+        self.screen.blit(self.text,(317,332))
+
+        pygame.display.update()
             
 
 obj = MainMenu()
