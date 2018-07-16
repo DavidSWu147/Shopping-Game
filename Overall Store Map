@@ -6,9 +6,10 @@ pygame.init()
 # setting up the window
 display_width = 900
 display_height = 800
+display = (display_width, display_height)
 white = (255,255,255)
 
-pygame.display.set_mode((display_width, display_height))
+pygame.display.set_mode(display)
 pygame.display.set_caption("Welcome to the Store!")
 pygame.setFill(white)
 pygame.display.update()
