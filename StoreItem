@@ -3,6 +3,7 @@
 from pygame import *
 import math
 
+# Here is a list of colors that can be used for our coder's disposal.
 black = (0, 0, 0)
 white = (255, 255, 255)
 blue = ((0, 0, 255))
@@ -10,7 +11,7 @@ green = (0, 255, 0)
 red = (255, 0, 0)
 pink= (255,200, 200)
 
-
+#The Class that belongs to each product on the store shelves.
 class product:
 This     
     def __init__(self, name, image, price, Color, X, Y):
@@ -38,10 +39,10 @@ This
 
 class stoppoint:
 
-    def __init__(self, X, Y, color=black, width= 30):
+    def __init__(self, X, Y, color=black):
         self.X= X
         self.Y= Y
-        self.width= width
+        
         self.color= color
 
-        self.triangle= pygame.draw.polygon(self, self.color, [(self.X,self.Y), (self.X + self.width, self.Y), (self.X + (self.width/2), self.Y + ((self.width/2) * math.sqrt(3)))])
+        self.triangle= self.triangle= pygame.draw.polygon(self, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 20)],1)
