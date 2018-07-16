@@ -43,6 +43,9 @@ entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
 display1.blit(entertainment_area_text, entertainment_area_text_center)
 
+from StoreItem import stoppoint
+pygame.stoppoint (display1, 500, 200)
+
 pygame.display.update()
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
