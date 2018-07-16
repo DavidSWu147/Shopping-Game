@@ -10,7 +10,7 @@ display = (display_width, display_height)
 white = (255,255,255)
 
 pygame.display.set_mode(display)
-pygame.display.set_caption("Welcome to the Store!")
+pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
 pygame.setFill(white)
 pygame.display.update()
 
