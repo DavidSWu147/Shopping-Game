@@ -1,1 +1,33 @@
+import pygame,sys
+from pygame import *
+pygame.init()
+
+white = (255,255,255)
+bisque = (255,228,196)
+black = (0,0,0)
+
+screen = pygame.display.set_mode([900,600])
+pygame.display.set_caption('scene')
+
+#The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
+fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+textObj1 = fontObj.render('budget:',True,black,bisque)
+textRectObj1 = textObj1.get_rect()
+textRectObj1.center = (40,20)
+screen.fill(white)
+screen.blit(textObj1,textRectObj1) #画出了budget
+
+textObj2 = 
+
+
+pygame.draw.line(screen,black,(80,0),(80,600)) #画了一条线
+
+
+while True:   #running = True  
+    for event in pygame.event.get():
+        if event.type == QUIT:     
+            pygame.quit()
+            sys.exit()
+    pygame.display.update()
+
 
