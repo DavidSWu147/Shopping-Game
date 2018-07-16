@@ -1,5 +1,6 @@
 #Overall Store Map
 import pygame, math
+from pygame import *
 import time
 pygame.init()
 # setting up the window
