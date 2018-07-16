@@ -5,13 +5,44 @@ import time
 pygame.init()
 # setting up the window
 display_width = 900
-display_height = 800
-display = (display_width, display_height)
-white = (255,255,255)
+display_height = 600
 
-pygame.display.set_mode(display)
+display = (display_width, display_height)
+
+white = (255,255,255)
+black = (0,0,0)
+blue = (0,0,255)
+
+display1 = pygame.display.set_mode(display)
 pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
-pygame.setFill(white)
+
+display1.fill(white)
+
+food_area = pygame.draw.rect(display1, black, (140,0,760,150),15)
+home_decor_area = pygame.draw.rect(display1, black, (750,150,150,750), 15)
+entertainment_area = pygame.draw.rect(display1, black, (140,450,610,150), 15)
+
+#food area text
+food_area_text = pygame.font.Font("freesansbold.ttf", 20)
+food_area_text = food_area_text.render("Food", True, black, None)
+food_area_textrect = food_area_text.get_rect()
+food_area_text_center = (360,75)
+display1.blit(food_area_text, food_area_text_center)
+
+#home decor area text
+home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
+home_decor_area_text = home_decor_area_text.render("Home Decor", True, black, None)
+home_decor_area_textrect = home_decor_area_text.get_rect()
+home_decor_area_text_center = (765,300)
+display1.blit(home_decor_area_text, home_decor_area_text_center)
+
+#entertainment area text
+entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
+entertainment_area_text = entertainment_area_text.render("Entertainment", True, black, None)
+entertainment_area_textrect = entertainment_area_text.get_rect()
+entertainment_area_text_center = (360, 500)
+display1.blit(entertainment_area_text, entertainment_area_text_center)
+
 pygame.display.update()
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
