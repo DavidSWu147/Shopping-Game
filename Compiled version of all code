@@ -1,5 +1,5 @@
 #David's code
-import sys, pygame
+import sys, pygame, math, time
 
 class MainMenu(object):  
 
@@ -85,10 +85,7 @@ class stoppoint:
 
 #Kate's and Annie's
 #Overall Store Map, created by Kate Wilson
-
 # setting up the window
-display_width = 900
-display_height = 600
 
 display = (display_width, display_height)
 
