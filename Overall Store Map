@@ -1,15 +1,15 @@
 #Overall Store Map
-import pygame
+import pygame, math
 import time
-pygame_init()
+pygame.init()
 # setting up the window
 display_width = 900
 display_height = 800
 white = (255,255,255)
 
 store_display = pygame.display.set_mode(display_width, display_height)
-pygame.display.set_caption("Welcome to the Store! Please click on an area to browse the avaliable products.")
-
+pygame.display.set_caption("Welcome to the Store!")
+pygame.setFill(white)
 pygame.display.update()
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
