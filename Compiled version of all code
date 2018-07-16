@@ -85,10 +85,7 @@ class stoppoint:
 
 #Kate's and Annie's
 #Overall Store Map, created by Kate Wilson
-import pygame, math
-from pygame import *
-import time
-pygame.init()
+
 # setting up the window
 display_width = 900
 display_height = 600
