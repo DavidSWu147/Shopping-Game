@@ -1,2 +1,0 @@
-# Shopping-Game
-Catapult Project
