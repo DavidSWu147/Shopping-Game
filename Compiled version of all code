@@ -153,7 +153,7 @@ screen.blit(textObj3,textRectObj3)
 
 textObj4 = fontObj.render('extra:',True,black,bisque)
 textRectObj4 = textObj4.get_rect()
-textRectObj4.center = (30,37 0)
+textRectObj4.center = (30,37,0)
 screen.blit(textObj4,textRectObj4)
 
 pygame.draw.line(screen,black,(140,0),(140,600)) #画了一条线
