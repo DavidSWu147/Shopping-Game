@@ -31,27 +31,27 @@ home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
 entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
 
 #food area text
-food_area_text = pygame.font.Font("freesansbold.ttf", 20)
+food_area_text = pygame.font.Font("freesansbold.ttf", 30)
 food_area_text = food_area_text.render("Food", True, black, None)
 food_area_textrect = food_area_text.get_rect()
 food_area_text_center = (360,75)
 screen.blit(food_area_text, food_area_text_center)
 
 #home decor area text
-home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
+home_decor_area_text = pygame.font.Font("freesansbold.ttf", 30)
 home_decor_area_text = home_decor_area_text.render("Home Decor", True, black, None)
 home_decor_area_textrect = home_decor_area_text.get_rect()
 home_decor_area_text_center = (765,300)
 screen.blit(home_decor_area_text, home_decor_area_text_center)
 
 #entertainment area text
-entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
+entertainment_area_text = pygame.font.Font("freesansbold.ttf", 30)
 entertainment_area_text = entertainment_area_text.render("Entertainment", True, black, None)
 entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
 screen.blit(entertainment_area_text, entertainment_area_text_center)
 
-FoodStoppoint = stoppoint (500, 200, black, screen)
+FoodStoppoint = stoppoint (375, 170, black, screen)
 
 pygame.display.update()
 
