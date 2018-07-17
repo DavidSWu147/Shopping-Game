@@ -13,25 +13,23 @@ pink= (255,200, 200)
 
 #The Class that belongs to each product on the store shelves.
 class product:    
-    def __init__(self, name, image, price, Color, X, Y):
+    def __init__(self, screen, name, image, price, Color, X, Y):
         self.name= name
-        self.image= pygame.image.load(image)
+        self.image = pygame.image.load(image).convert()
         self.Color= Color
         self.X= X
         self.Y= Y
         self.price= price
         
-        self.rect= self.image.get_rect(topleft=(self.X, self.Y)
-        self.width= self.image.get_width()
-        self.height= self.image.get_height()
+        screen.blit(self.image, (self.X, self.Y))
         
-        myfont = pygame.font.SysFont("monospace", 15)
-        product_name= myfont.render('self.name', 1, self.Color)
+        myfont = pygame.font.SysFont("monospace", 30, True)
+        product_name= myfont.render(self.name, 1, self.Color)
         screen.blit(product_name, (self.X, self.Y))
 
-        myfont = pygame.font.SysFont("monospace", 10)
-        product_name= myfont.render('self.price', 1, self.Color)
-        screen.blit(product_name, (self.X, self.Y + 20))
+        myFont = pygame.font.SysFont("monospace", 20)
+        product_Name= myFont.render(self.price, 1, self.Color)
+        screen.blit(product_Name, (self.X, self.Y + 20))
         # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
 
 
