@@ -51,7 +51,6 @@ entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
 display1.blit(entertainment_area_text, entertainment_area_text_center)
 
-from StoreItem import stoppoint
 FoodStoppoint = stoppoint (500, 200, black, screen)
 
 pygame.display.update()
