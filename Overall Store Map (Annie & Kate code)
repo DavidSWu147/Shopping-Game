@@ -97,10 +97,6 @@ class shelving:
     screen.blit(shelving_instructions_text, shelving_instructions_text_center)
     shelving_instructions_text_rect = shelving_instructions_text.get_rect()
 
-class store_section:
-    
-    def __init__(self)
-
 # pygame.display.update()
 # game loop
 while True:   #running = True  
