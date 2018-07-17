@@ -1,9 +1,12 @@
 #Evan DeGroote's code
 
-from pygame import *
+import pygame
 import math
+from pygame import *
+from pygame.locals import*
+pygame.init()
 
-# Here is a list of colors that can be used for our coder's disposal.
+
 black = (0, 0, 0)
 white = (255, 255, 255)
 blue = ((0, 0, 255))
@@ -11,8 +14,8 @@ green = (0, 255, 0)
 red = (255, 0, 0)
 pink= (255,200, 200)
 
-#The Class that belongs to each product on the store shelves.
-class product:    
+class product:
+    Pricecount= 0
     def __init__(self, screen, name, image, price, Color, X, Y):
         self.name= name
         self.image = pygame.image.load(image).convert()
@@ -23,13 +26,13 @@ class product:
         
         screen.blit(self.image, (self.X, self.Y))
         
-        myfont = pygame.font.SysFont("monospace", 30, True)
+        myfont = pygame.font.SysFont("monospace", 15, True)
         product_name= myfont.render(self.name, 1, self.Color)
-        screen.blit(product_name, (self.X, self.Y))
+        screen.blit(product_name, (self.X + 50, self.Y+170))
 
-        myFont = pygame.font.SysFont("monospace", 20)
+        myFont = pygame.font.SysFont("monospace", 10, True)
         product_Name= myFont.render(self.price, 1, self.Color)
-        screen.blit(product_Name, (self.X, self.Y + 20))
+        screen.blit(product_Name, (self.X + 50, self.Y + 185))
         # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
 
 
@@ -39,4 +42,5 @@ class stoppoint:
         self.X= X
         self.Y= Y
         self.color= color
-        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
+        self.body= pygame.draw.polygon(screen, color, [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
+        
