@@ -111,6 +111,15 @@ class OverallStoreMap(object):
                 #self.screen.fill(white)
                 #self.screen.blit(shelving) 
                 return 'Query'
+            
+# the code below is for loading the shelves for each section with items
+#foodSection.items = [bread, milk, lemonade, cereal, orangejuice, fruit, cake, eggs, vegetables]
+#homedecorSection.items = [wood, windows, wallpaper, paint, chair, photoframe, lamp, candle, painting]
+#entertainmentSection.items = [rockinghorse, chutesandladders, cards, bookcollections, skateboard, frisbee, pingpong, dolls, soccerball]
 
+
+#foodSection = StoreSection(food)
+#homedecorSection = StoreSection(homedecor)
+#entertainmentSection = StoreSection(entertainment)
 
 
