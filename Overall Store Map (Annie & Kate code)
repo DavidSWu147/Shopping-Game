@@ -17,29 +17,7 @@ bisque = (255,228,196)
 screen = pygame.display.set_mode(screen)
 pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
 
-screen.fill(white)
 
-class stoppoint:
-
-    def __init__(self, X, Y, color, screen):
-        self.X= X
-        self.Y= Y
-        self.color= color
-        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
-        
-class shelving:
-  def __init__ (self):
-    shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
-    shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
-    shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
-
-    #shelving instructions text
-    shelving_instructions_text = pygame.font.Font("freesansbold.ttf", 15)
-    shelving_instructions_text = shelving_instructions_text.render("Instructions: Click on an item to add it to your cart. Use side arrows to navigate the store.", True, black, None)
-    shelving_instructions_text_rect = shelving_instructions_text.get_rect()
-    shelving_instructions_text_center = (150,575)
-    screen.blit(shelving_instructions_text, shelving_instructions_text_center)
-    
 #food area text
 food_area_text = pygame.font.Font("freesansbold.ttf", 20)
 food_area_text = food_area_text.render("Food", True, black, None)
@@ -64,7 +42,28 @@ entertainment_area_text_center = (360, 500)
 #foodStoppoint = stoppoint (375, 170, black, screen)
 #homedecorStoppoint = stoppoint (700, 300, black, screen)
 #entertainmentStoppoint = stoppoint (375, 400, black, screen)
+    
+#Annie's Code
+#The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
+fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+textObj1 = fontObj.render('budget:',True,black,bisque)
+textRectObj1 = textObj1.get_rect()
+textRectObj1.center = (40,20)
 
+textObj2 = fontObj.render('now:',True,black,bisque)
+textRectObj2 = textObj2.get_rect()
+textRectObj2.center = (30,80)
+
+textObj3 = fontObj.render('shopping list:',True,black,bisque)
+textRectObj3 = textObj3.get_rect()
+textRectObj3.center = (60,140)
+
+textObj4 = fontObj.render('extra:',True,black,bisque)
+textRectObj4 = textObj4.get_rect()
+textRectObj4.center = (30,370)
+
+
+screen.fill(white)
 
 def store_area_click(x,y):
   if pygame.mouse.get_pos() == foodStoppoint:
@@ -76,32 +75,30 @@ def store_area_click(x,y):
   if pygame.mouse.get_pos() == entertainmentStoppoint:
     screen.fill(white)
     screen.blit(shelving)   
-    
-#Annie's Code
-#The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
-fontObj = pygame.font.Font('freesansbold.ttf', 14) 
-textObj1 = fontObj.render('budget:',True,black,bisque)
-textRectObj1 = textObj1.get_rect()
-textRectObj1.center = (40,20)
-screen.fill(white)
-screen.blit(textObj1,textRectObj1) # draw budget
 
-textObj2 = fontObj.render('now:',True,black,bisque)
-textRectObj2 = textObj2.get_rect()
-textRectObj2.center = (30,80)
-screen.blit(textObj2,textRectObj2)
+class stoppoint:
 
-textObj3 = fontObj.render('shopping list:',True,black,bisque)
-textRectObj3 = textObj3.get_rect()
-textRectObj3.center = (60,140)
-screen.blit(textObj3,textRectObj3)
+    def __init__(self, X, Y, color, screen):
+        self.X= X
+        self.Y= Y
+        self.color= color
+        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
+        
+class shelving:
 
-textObj4 = fontObj.render('extra:',True,black,bisque)
-textRectObj4 = textObj4.get_rect()
-textRectObj4.center = (30,370)
-screen.blit(textObj4,textRectObj4)
+  def __init__ (self):
+    shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
+    shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
+    shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
 
-pygame.draw.line(screen,black,(140,0),(140,600)) # draw line
+    #shelving instructions text
+    shelving_instructions_text = pygame.font.Font("freesansbold.ttf", 15)
+    shelving_instructions_text = shelving_instructions_text.render("Instructions: Click on an item to add it to your cart. Use side arrows to navigate the store.", True, black, None)
+    shelving_instructions_text_center = (150,575)
+    screen.blit(shelving_instructions_text, shelving_instructions_text_center)
+    shelving_instructions_text_rect = shelving_instructions_text.get_rect()
+
+
 # pygame.display.update()
 # game loop
 while True:   #running = True  
@@ -111,6 +108,8 @@ while True:   #running = True
             sys.exit()
         if event.type == MOUSEBUTTONDOWN:
             click = pygame.mouse.get_pos()
+            if click 
+
             print(click)
     food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
     home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
@@ -121,4 +120,10 @@ while True:   #running = True
     foodStoppoint = stoppoint (375, 170, black, screen)
     homedecorStoppoint = stoppoint (700, 300, black, screen)
     entertainmentStoppoint = stoppoint (375, 400, black, screen)
+    screen.blit(textObj1,textRectObj1) # draw budget
+    screen.blit(textObj2,textRectObj2)
+    screen.blit(textObj3,textRectObj3)
+    screen.blit(textObj4,textRectObj4)
+    pygame.draw.line(screen,black,(140,0),(140,600)) # draw line
+
     pygame.display.update()
