@@ -1,0 +1,12 @@
+class ShelvingDisplay(self):
+  def draw():
+    shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
+    shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
+    shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
+
+    #shelving instructions text
+    shelving_instructions_text = pygame.font.Font("freesansbold.ttf", 15)
+    shelving_instructions_text = shelving_instructions_text.render("Instructions: Click on an item to add it to your cart. Use side arrows to navigate the store.", True, black, None)
+    shelving_instructions_text_rect = shelving_instructions_text.get_rect()
+    shelving_instructions_text_center = (150,575)
+    screen.blit(shelving_instructions_text, shelving_instructions_text_center)
