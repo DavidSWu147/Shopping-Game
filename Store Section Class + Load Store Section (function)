@@ -1,0 +1,27 @@
+@author Kate Wilson and Annie Li
+
+class StoreSection:
+  def __init__(self,name):
+    self.name=name
+    self.items = []
+  def draw(self):
+    for item in self.items:
+      item.draw()
+  def collision(self):
+    for item in self.items:
+      item.collidepoint()
+  shelving.draw()
+
+# create store sections using class definitions
+foodSection = StoreSection(food)
+homedecorSection = StoreSection(homedecor)
+entertainmentSection = StoreSection(entertainment)
+# check to see collision with stoppoint and area and load the appropriate section, shelving, and items
+for stoppoint in stoppoints:
+  if stoppoint.collidepoint(click):
+    if stoppoint.name = "food":
+      load StoreSection(foodSection)
+    if stoppoint.name = "homedecor":
+      load StoreSection(homedecorSection)
+    if stoppoint.name = "entertainment":
+      load StoreSection(entertainmentSection)
