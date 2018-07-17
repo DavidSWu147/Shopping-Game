@@ -53,7 +53,7 @@ screen.blit(entertainment_area_text, entertainment_area_text_center)
 
 foodStoppoint = stoppoint (375, 170, black, screen)
 homedecorStoppoint = stoppoint (700, 300, black, screen)
-entertainmentStoppoint = stoppoint (375, 430, black, screen)
+entertainmentStoppoint = stoppoint (375, 400, black, screen)
 pygame.display.update()
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
