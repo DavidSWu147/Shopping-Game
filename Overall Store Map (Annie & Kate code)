@@ -1,5 +1,5 @@
 #Overall Store Map, created by Kate Wilson
-import pygame, math
+import pygame, math, sys
 from pygame import *
 import time
 pygame.init()
@@ -88,7 +88,7 @@ textObj1 = fontObj.render('budget:',True,black,bisque)
 textRectObj1 = textObj1.get_rect()
 textRectObj1.center = (40,20)
 screen.fill(white)
-screen.blit(textObj1,textRectObj1) #画出了budget
+screen.blit(textObj1,textRectObj1) # draw budget
 
 textObj2 = fontObj.render('now:',True,black,bisque)
 textRectObj2 = textObj2.get_rect()
@@ -105,7 +105,7 @@ textRectObj4 = textObj4.get_rect()
 textRectObj4.center = (30,370)
 screen.blit(textObj4,textRectObj4)
 
-pygame.draw.line(screen,black,(140,0),(140,600)) #画了一条线
+pygame.draw.line(screen,black,(140,0),(140,600)) # draw line
 
 # game loop
 while True:   #running = True  
