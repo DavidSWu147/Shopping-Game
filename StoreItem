@@ -23,19 +23,23 @@ class product:
         self.X= X
         self.Y= Y
         self.price= price
-        
-        screen.blit(self.image, (self.X, self.Y))
+        self.rect = self.image.get_rect()
         
         myfont = pygame.font.SysFont("monospace", 15, True)
         product_name= myfont.render(self.name, 1, self.Color)
-        screen.blit(product_name, (self.X + 50, self.Y+170))
 
         myFont = pygame.font.SysFont("monospace", 10, True)
         product_Name= myFont.render(self.price, 1, self.Color)
+        
+        # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)]
+        
+    def draw(self):
+        self.screen.blit(self.image,(self.x, self.y))
         screen.blit(product_Name, (self.X + 50, self.Y + 185))
-        # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
-
-
+        
+    def detectcollision(self,click)
+        return self.rect.collidepoint(click)
+        
 class stoppoint:
 
     def __init__(self, X, Y, color, screen):
