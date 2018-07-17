@@ -69,7 +69,6 @@ homedecorStoppoint = stoppoint (700, 300, black, screen)
 entertainmentStoppoint = stoppoint (375, 400, black, screen)
 pygame.display.update()
 
-#defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
 def store_area_click(x,y):
   pygame.mouse.get_pressed
   if pygame.mouse.get_pos() == foodStoppoint:
@@ -80,8 +79,8 @@ def store_area_click(x,y):
     screen.blit(shelving)
   if pygame.mouse.get_pos() == entertainmentStoppoint:
     screen.fill(white)
-    screen.blit(shelving)    
-
+    screen.blit(shelving)   
+    
 #Annie's Code
 #The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
 fontObj = pygame.font.Font('freesansbold.ttf', 14) 
