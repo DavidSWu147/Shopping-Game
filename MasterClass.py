@@ -1,6 +1,7 @@
 import sys, pygame
 from MainMenu import MainMenu
 from StoreFront import StoreFront
+from InputBudget import InputBudget
 
 '''
 @author David Wu
@@ -32,6 +33,7 @@ class MasterClass(object):
     def initializeClasses(self):
         self.mainMenu = MainMenu(self)
         self.storeFront = StoreFront(self)
+        self.inputBudget = InputBudget(self)
 
     def __str__(self):
         return 'Master Class'
@@ -49,12 +51,18 @@ class MasterClass(object):
                     self.hasExited = True
                 elif self.currentClass != None:
                     command = self.currentClass.handleEvent(event)
-                    if command == 'StoreFront':
-                        self.currentClass = self.storeFront
-                        self.currentScreen = self.storeFront.screen
-                    elif command == 'Query':
+                    if command == 'Query':
                         self.currentClass = None
                         self.currentScreen = None
+                    elif command == 'InputBudget':
+                        self.currentClass = self.inputBudget
+                        self.currentScreen = self.inputBudget.screen
+                    elif command == 'StoreFront':
+                        self.currentClass = self.storeFront
+                        self.currentScreen = self.storeFront.screen
+                    elif command == 'MainMenu':
+                        self.currentClass = self.mainMenu
+                        self.currentScreen = self.mainMenu.screen
 
             self.draw()
 
