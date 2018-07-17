@@ -98,8 +98,8 @@ class OverallStoreMap(object):
             self.curPos = pygame.mouse.get_pos()
             if  self.foodStoppoint.X < self.curPos[0] and self.curPos[0] < self.foodStoppoint.X + 30 \
             and self.foodStoppoint.Y < self.curPos[1] and self.curPos[1] < self.foodStoppoint.Y + 27:
-                #self.screen.fill(white)
-                #self.screen.blit(shelving)
+                self.screen.fill(white)
+                self.screen.blit(shelving)
                 return 'Query'
             if  self.homedecorStoppoint.X < self.curPos[0] and self.curPos[0] < self.homedecorStoppoint.X + 30 \
             and self.homedecorStoppoint.Y < self.curPos[1] and self.curPos[1] < self.homedecorStoppoint.Y + 27:
@@ -111,6 +111,7 @@ class OverallStoreMap(object):
                 #self.screen.fill(white)
                 #self.screen.blit(shelving) 
                 return 'Query'
+    
             
 # the code below is for loading the shelves for each section with items
 #foodSection.items = [bread, milk, lemonade, cereal, orangejuice, fruit, cake, eggs, vegetables]
