@@ -35,6 +35,17 @@ entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
 screen.blit(entertainment_area_text, entertainment_area_text_center)
 
+class stoppoint:
+
+    def __init__(self, X, Y, color=black):
+        self.X= X
+        self.Y= Y
+        
+        self.color= color
+
+        self.triangle= pygame.draw.polygon(Screen, black, [(X,Y), (X + 30, Y), (X + 15, Y + 20)],1)
+
+FoodStoppoint = stoppoint (screen, 500, 200)
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
 #def store_area_click(x,y):
