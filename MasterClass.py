@@ -1,5 +1,6 @@
 import sys, pygame
 from MainMenu import MainMenu
+from StoreFront import StoreFront
 
 '''
 @author David Wu
@@ -30,13 +31,13 @@ class MasterClass(object):
 
     def initializeClasses(self):
         self.mainMenu = MainMenu(self)
+        self.storeFront = StoreFront(self)
 
     def __str__(self):
         return 'Master Class'
 
     def run(self):
         self.currentClass = self.mainMenu
-        self.mainMenu.draw()
         self.currentScreen = self.mainMenu.screen
         self.draw()
         
@@ -48,8 +49,10 @@ class MasterClass(object):
                     self.hasExited = True
                 elif self.currentClass != None:
                     command = self.currentClass.handleEvent(event)
-                    if command == 'next screen':
-                        #placeholders, also can change above line
+                    if command == 'StoreFront':
+                        self.currentClass = self.storeFront
+                        self.currentScreen = self.storeFront.screen
+                    elif command == 'Query':
                         self.currentClass = None
                         self.currentScreen = None
 
@@ -61,6 +64,7 @@ class MasterClass(object):
         if self.currentScreen == None:
             self.masterScreen.fill(self.GRAY)
         else:
+            self.currentClass.draw()
             self.masterScreen.blit(self.currentScreen,(0,0))
 
         pygame.display.update()
