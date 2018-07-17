@@ -18,6 +18,14 @@ pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
 
 display1.fill(white)
 
+class stoppoint:
+
+    def __init__(self, X, Y, color, screen):
+        self.X= X
+        self.Y= Y
+        self.color= color
+        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
+
 food_area = pygame.draw.rect(display1, black, (140,0,760,150),15)
 home_decor_area = pygame.draw.rect(display1, black, (750,150,150,750), 15)
 entertainment_area = pygame.draw.rect(display1, black, (140,450,610,150), 15)
@@ -44,7 +52,7 @@ entertainment_area_text_center = (360, 500)
 display1.blit(entertainment_area_text, entertainment_area_text_center)
 
 from StoreItem import stoppoint
-FoodStoppoint = stoppoint (display1, 500, 200)
+FoodStoppoint = stoppoint (500, 200, black, screen)
 
 pygame.display.update()
 
@@ -76,7 +84,7 @@ screen.blit(textObj3,textRectObj3)
 
 textObj4 = fontObj.render('extra:',True,black,bisque)
 textRectObj4 = textObj4.get_rect()
-textRectObj4.center = (30,37 0)
+textRectObj4.center = (30,370)
 screen.blit(textObj4,textRectObj4)
 
 pygame.draw.line(screen,black,(140,0),(140,600)) #画了一条线
