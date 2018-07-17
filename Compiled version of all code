@@ -9,6 +9,132 @@ bisque = (255,228,196)
 black = (0,0,0)
 
 screen = pygame.display.set_mode([900,600])
+
+class MainMenu(object):  
+
+    def __init__(self, mC):
+        pygame.init()
+
+        self.masterClass = mC
+
+        self.displaySize = (900,600)
+        self.screen = pygame.Surface(self.displaySize)
+        self.panelName = 'Main Menu'
+
+        self.BLACK = (0,0,0)
+        self.WHITE = (255,255,255)
+        self.fontMaster = None
+
+    def __str__(self):
+        return self.panelName
+    
+    '''
+    Don't call this method!
+    Will not work because screen has not been set using display.set_mode()
+    '''
+    def run(self):
+        self.draw()
+        pygame.display.update()
+        
+        self.hasExited = False
+        while not self.hasExited:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.hasExited = True
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    self.curPos = pygame.mouse.get_pos()
+                    if 300 < self.curPos[0] and self.curPos[0] < 600 \
+                            and 300 < self.curPos[1] and self.curPos[1] < 400:
+                        self.hasExited = True
+
+            self.draw() 
+            pygame.display.update()           
+
+    def draw(self):
+        self.screen.fill(self.WHITE)    
+
+        self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
+        self.text = self.fontMaster.render('Dollar Chopper',False,self.BLACK)
+        self.screen.blit(self.text,(250,100))
+
+        pygame.draw.rect(self.screen,self.BLACK,[300,300,300,100],5)
+        self.fontMaster = pygame.font.SysFont('Calibri',36)
+        self.text = self.fontMaster.render('Click Here to Enter',False,self.BLACK)
+        self.screen.blit(self.text,(317,332))
+
+    def handleEvent(self,event):
+        if event.type == pygame.MOUSEBUTTONUP:
+            self.curPos = pygame.mouse.get_pos()
+            if 300 < self.curPos[0] and self.curPos[0] < 600 \
+                        and 300 < self.curPos[1] and self.curPos[1] < 400:
+                return 'next screen'
+
+class MasterClass(object):
+    
+    def __init__(self):
+        pygame.init()
+
+        self.initializeClasses()
+
+        self.displaySize = (900,600)
+        self.masterScreen = pygame.display.set_mode(self.displaySize)
+        self.panelName = 'Dollar Chopper'
+        pygame.display.set_caption(self.panelName)
+
+        #class with the current screen
+        self.currentClass = None
+        #current screen to be blitted on to the masterScreen (not the class)
+        self.currentScreen = None 
+
+        self.BLACK = (0,0,0)
+        self.GRAY = (128,128,128)
+        self.WHITE = (255,255,255)
+        self.RED = (255,0,0)
+        self.GREEN = (0,255,0)
+        self.BLUE = (0,0,255)        
+
+    def initializeClasses(self):
+        self.mainMenu = MainMenu(self)
+
+    def __str__(self):
+        return 'Master Class'
+
+    def run(self):
+        self.currentClass = self.mainMenu
+        self.mainMenu.draw()
+        self.currentScreen = self.mainMenu.screen
+        self.draw()
+        
+        self.hasExited = False
+        while not self.hasExited:
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    self.hasExited = True
+                elif self.currentClass != None:
+                    command = self.currentClass.handleEvent(event)
+                    if command == 'next screen':
+                        #placeholders, also can change above line
+                        self.currentClass = None
+                        self.currentScreen = None
+
+            self.draw()
+
+    def draw(self):
+        self.masterScreen.fill(self.GRAY)
+
+        if self.currentScreen == None:
+            self.masterScreen.fill(self.GRAY)
+        else:
+            self.masterScreen.blit(self.currentScreen,(0,0))
+
+        pygame.display.update()
+
+obj = MasterClass()
+obj.run()
+
+pygame.Surface.convert(screen)
+
 screen.fill(white)
 food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
 home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
@@ -35,17 +161,6 @@ entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
 screen.blit(entertainment_area_text, entertainment_area_text_center)
 
-class stoppoint:
-
-    def __init__(self, X, Y, color=black):
-        self.X= X
-        self.Y= Y
-        
-        self.color= color
-
-        self.triangle= pygame.draw.polygon(Screen, black, [(X,Y), (X + 30, Y), (X + 15, Y + 20)],1)
-
-FoodStoppoint = stoppoint (screen, 500, 200)
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
 #def store_area_click(x,y):
@@ -57,22 +172,22 @@ FoodStoppoint = stoppoint (screen, 500, 200)
 #Annie's Code
 #The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
 fontObj = pygame.font.Font('freesansbold.ttf', 14) 
-textObj1 = fontObj.render('budget:',True,black,bisque)
+textObj1 = fontObj.render('Budget:',True,black,bisque)
 textRectObj1 = textObj1.get_rect()
 textRectObj1.center = (40,20)
 screen.blit(textObj1,textRectObj1) #画出了budget
 
-textObj2 = fontObj.render('now:',True,black,bisque)
+textObj2 = fontObj.render('Now:',True,black,bisque)
 textRectObj2 = textObj2.get_rect()
 textRectObj2.center = (30,80)
 screen.blit(textObj2,textRectObj2)
 
-textObj3 = fontObj.render('shopping list:',True,black,bisque)
+textObj3 = fontObj.render('Shopping list:',True,black,bisque)
 textRectObj3 = textObj3.get_rect()
 textRectObj3.center = (60,140)
 screen.blit(textObj3,textRectObj3)
 
-textObj4 = fontObj.render('extra:',True,black,bisque)
+textObj4 = fontObj.render('Extra:',True,black,bisque)
 textRectObj4 = textObj4.get_rect()
 textRectObj4.center = (30,370)
 screen.blit(textObj4,textRectObj4)
