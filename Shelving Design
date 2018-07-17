@@ -1,3 +1,28 @@
 #created by Kate Wilson
 #design for individual shelves of each part of the store, will be filled eventually using the class "product" to input items from the store onto the shelves
 
+import pygame, math
+from pygame import *
+import time
+pygame.init()
+# setting up the window
+display_width = 900
+display_height = 600
+
+screen = (display_width, display_height)
+
+white = (255,255,255)
+black = (0,0,0)
+blue = (0,0,255)
+
+screen = pygame.display.set_mode(screen)
+pygame.display.set_caption("Welcome to the Store! Click on an item to add it to your cart.")
+
+screen.fill(white)
+
+shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
+shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
+shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
+
+pygame.display.update()
+
