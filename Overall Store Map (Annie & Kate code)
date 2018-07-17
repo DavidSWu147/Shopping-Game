@@ -25,7 +25,20 @@ class stoppoint:
         self.Y= Y
         self.color= color
         self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
+        
+class shelving:
+  def __init__ (self):
+    shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
+    shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
+    shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
 
+    #shelving instructions text
+    shelving_instructions_text = pygame.font.Font("freesansbold.ttf", 15)
+    shelving_instructions_text = shelving_instructions_text.render("Instructions: Click on an item to add it to your cart. Use side arrows to navigate the store.", True, black, None)
+    shelving_instructions_text_rect = shelving_instructions_text.get_rect()
+    shelving_instructions_text_center = (150,575)
+    screen.blit(shelving_instructions_text, shelving_instructions_text_center)
+    
 food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
 home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
 entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
@@ -56,12 +69,21 @@ homedecorStoppoint = stoppoint (700, 300, black, screen)
 entertainmentStoppoint = stoppoint (375, 400, black, screen)
 pygame.display.update()
 
-# defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
-#def store_area_click(x,y):
- # pygame.getMouse()
-  #  if pygame.getMouse = 
-   # else:
-    #  break
+#defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
+def store_area_click(x,y):
+  pygame.mouse.get_pressed
+  if pygame.mouse.get_pos() = foodStoppoint:
+    screen.fill(white)
+    screen.blit(shelving)
+  if pygame.mouse.get_pos() = homedecorStoppoint:
+    screen.fill(white)
+    screen.blit(shelving)
+  if pygame.mouse.get_pos() = entertainmentStoppoint:
+    screen.fill(white)
+    screen.blit(shelving)    
+    
+    else:
+      
 
 #Annie's Code
 #The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
