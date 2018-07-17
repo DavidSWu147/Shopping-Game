@@ -12,12 +12,33 @@ class MainMenu(object):
         self.panelName = 'Main Menu'
 
         self.BLACK = (0,0,0)
+        self.GRAY = (128,128,128)
         self.WHITE = (255,255,255)
         self.fontMaster = None
 
     def __str__(self):
-        return self.panelName
-    
+        return self.panelName            
+
+    def draw(self):
+        self.screen.fill(self.WHITE)    
+
+        self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
+        self.text = self.fontMaster.render('Dollar Chopper',False,self.BLACK)
+        self.screen.blit(self.text,(250,100))
+
+        pygame.draw.rect(self.screen,self.BLACK,[300,300,300,100],5)
+        self.fontMaster = pygame.font.SysFont('Calibri',36)
+        self.text = self.fontMaster.render('Click Here to Enter',False,self.BLACK)
+        self.screen.blit(self.text,(317,332))
+
+    def handleEvent(self,event):
+        if event.type == pygame.MOUSEBUTTONUP:
+            self.curPos = pygame.mouse.get_pos()
+            if 300 < self.curPos[0] and self.curPos[0] < 600 \
+                        and 300 < self.curPos[1] and self.curPos[1] < 400:
+                return 'StoreFront'
+
+
     '''
     Don't call this method!
     Will not work because screen has not been set using display.set_mode()
@@ -38,25 +59,6 @@ class MainMenu(object):
                         self.hasExited = True
 
             self.draw() 
-            pygame.display.update()           
-
-    def draw(self):
-        self.screen.fill(self.WHITE)    
-
-        self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
-        self.text = self.fontMaster.render('Dollar Chopper',False,self.BLACK)
-        self.screen.blit(self.text,(250,100))
-
-        pygame.draw.rect(self.screen,self.BLACK,[300,300,300,100],5)
-        self.fontMaster = pygame.font.SysFont('Calibri',36)
-        self.text = self.fontMaster.render('Click Here to Enter',False,self.BLACK)
-        self.screen.blit(self.text,(317,332))
-
-    def handleEvent(self,event):
-        if event.type == pygame.MOUSEBUTTONUP:
-            self.curPos = pygame.mouse.get_pos()
-            if 300 < self.curPos[0] and self.curPos[0] < 600 \
-                        and 300 < self.curPos[1] and self.curPos[1] < 400:
-                return 'next screen'
+            pygame.display.update()      
 
            
