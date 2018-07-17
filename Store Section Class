@@ -1,0 +1,13 @@
+@author Kate Wilson and Annie Li
+
+class StoreSection:
+  def __init__(self,name):
+    self.name=name
+    self.items = []
+  def draw(self):
+    for item in self.items:
+      item.draw()
+  def collision(self):
+    for item in self.items:
+      item.collidepoint()
+  shelving.draw()
