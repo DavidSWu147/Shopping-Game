@@ -111,9 +111,9 @@ while True:   #running = True
     screen.blit(food_area_text, food_area_text_center)
     screen.blit(home_decor_area_text, home_decor_area_text_center)
     screen.blit(entertainment_area_text, entertainment_area_text_center)
-    foodStoppoint = stoppoint (375, 170, black, screen)
-    homedecorStoppoint = stoppoint (700, 300, black, screen)
-    entertainmentStoppoint = stoppoint (375, 400, black, screen)
+    foodStoppoint = stoppoint (375, 170, black, screen, food)
+    homedecorStoppoint = stoppoint (700, 300, black, screen, homedecor)
+    entertainmentStoppoint = stoppoint (375, 400, black, screen, entertainment)
     screen.blit(textObj1,textRectObj1) # draw budget
     screen.blit(textObj2,textRectObj2)
     screen.blit(textObj3,textRectObj3)
