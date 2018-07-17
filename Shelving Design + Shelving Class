@@ -32,6 +32,8 @@ class shelving:
     shelving_instructions_text_rect = shelving_instructions_text.get_rect()
     shelving_instructions_text_center = (150,575)
     screen.blit(shelving_instructions_text, shelving_instructions_text_center)
+    
+shelving = shelving()
 
 pygame.display.update()
 
