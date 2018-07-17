@@ -66,6 +66,10 @@ screen.fill(white)
 
 #@author Kate Wilson and Annie Li
 
+foodSection.items = [bread, milk, lemonade, cereal, orangejuice, fruit, cake, eggs, vegetables]
+homedecorSection.items = [wood, windows, wallpaper, paint, chair, photoframe, lamp, candle, painting]
+entertainmentSection.items = [rockinghorse, chutesandladders, cards, bookcollections, skateboard, frisbee, pingpong, dolls, soccerball]
+
 class StoreSection:
   def __init__(self,name):
     self.name=name
