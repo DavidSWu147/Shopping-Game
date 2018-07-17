@@ -46,19 +46,19 @@ entertainment_area_text_center = (360, 500)
 #Annie's Code
 #The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
 fontObj = pygame.font.Font('freesansbold.ttf', 14) 
-textObj1 = fontObj.render('budget:',True,black,bisque)
+textObj1 = fontObj.render('Budget:',True,black,bisque)
 textRectObj1 = textObj1.get_rect()
 textRectObj1.center = (40,20)
 
-textObj2 = fontObj.render('now:',True,black,bisque)
+textObj2 = fontObj.render('Remaining:',True,black,bisque)
 textRectObj2 = textObj2.get_rect()
 textRectObj2.center = (30,80)
 
-textObj3 = fontObj.render('shopping list:',True,black,bisque)
+textObj3 = fontObj.render('Shopping List:',True,black,bisque)
 textRectObj3 = textObj3.get_rect()
 textRectObj3.center = (60,140)
 
-textObj4 = fontObj.render('extra:',True,black,bisque)
+textObj4 = fontObj.render('Cart:',True,black,bisque)
 textRectObj4 = textObj4.get_rect()
 textRectObj4.center = (30,370)
 
