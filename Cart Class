@@ -1,0 +1,5 @@
+# @author Kate Wilson
+
+import pygame, math, sys
+from pygame import *
+
