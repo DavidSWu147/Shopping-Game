@@ -64,7 +64,7 @@ textRectObj4.center = (30,370)
 
 screen.fill(white)
 
-@author Kate Wilson and Annie Li
+#@author Kate Wilson and Annie Li
 
 class StoreSection:
   def __init__(self,name):
@@ -85,11 +85,11 @@ entertainmentSection = StoreSection(entertainment)
 # check to see collision with stoppoint and area and load the appropriate section, shelving, and items
 for stoppoint in stoppoints:
   if stoppoint.collidepoint(click):
-    if stoppoint.name = "food":
+    if stoppoint.name == "food":
       load StoreSection(foodSection)
-    if stoppoint.name = "homedecor":
+    if stoppoint.name == "homedecor":
       load StoreSection(homedecorSection)
-    if stoppoint.name = "entertainment":
+    if stoppoint.name == "entertainment":
       load StoreSection(entertainmentSection)  
 
 class stoppoint:
