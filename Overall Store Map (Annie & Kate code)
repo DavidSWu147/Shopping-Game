@@ -7,16 +7,16 @@ pygame.init()
 display_width = 900
 display_height = 600
 
-display = (display_width, display_height)
+screen = (display_width, display_height)
 
 white = (255,255,255)
 black = (0,0,0)
 blue = (0,0,255)
 
-display1 = pygame.display.set_mode(display)
+screen = pygame.display.set_mode(screen)
 pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
 
-display1.fill(white)
+screen.fill(white)
 
 class stoppoint:
 
@@ -26,30 +26,30 @@ class stoppoint:
         self.color= color
         self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
 
-food_area = pygame.draw.rect(display1, black, (140,0,760,150),15)
-home_decor_area = pygame.draw.rect(display1, black, (750,150,150,750), 15)
-entertainment_area = pygame.draw.rect(display1, black, (140,450,610,150), 15)
+food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
+home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
+entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
 
 #food area text
 food_area_text = pygame.font.Font("freesansbold.ttf", 20)
 food_area_text = food_area_text.render("Food", True, black, None)
 food_area_textrect = food_area_text.get_rect()
 food_area_text_center = (360,75)
-display1.blit(food_area_text, food_area_text_center)
+screen.blit(food_area_text, food_area_text_center)
 
 #home decor area text
 home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
 home_decor_area_text = home_decor_area_text.render("Home Decor", True, black, None)
 home_decor_area_textrect = home_decor_area_text.get_rect()
 home_decor_area_text_center = (765,300)
-display1.blit(home_decor_area_text, home_decor_area_text_center)
+screen.blit(home_decor_area_text, home_decor_area_text_center)
 
 #entertainment area text
 entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
 entertainment_area_text = entertainment_area_text.render("Entertainment", True, black, None)
 entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
-display1.blit(entertainment_area_text, entertainment_area_text_center)
+screen.blit(entertainment_area_text, entertainment_area_text_center)
 
 FoodStoppoint = stoppoint (500, 200, black, screen)
 
