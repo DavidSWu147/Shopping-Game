@@ -40,35 +40,31 @@ class shelving:
     shelving_instructions_text_center = (150,575)
     screen.blit(shelving_instructions_text, shelving_instructions_text_center)
     
-food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
-home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
-entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
-
 #food area text
 food_area_text = pygame.font.Font("freesansbold.ttf", 20)
 food_area_text = food_area_text.render("Food", True, black, None)
 food_area_textrect = food_area_text.get_rect()
 food_area_text_center = (360,75)
-screen.blit(food_area_text, food_area_text_center)
+# screen.blit(food_area_text, food_area_text_center)
 
 #home decor area text
 home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
 home_decor_area_text = home_decor_area_text.render("Home Decor", True, black, None)
 home_decor_area_textrect = home_decor_area_text.get_rect()
 home_decor_area_text_center = (765,300)
-screen.blit(home_decor_area_text, home_decor_area_text_center)
+#screen.blit(home_decor_area_text, home_decor_area_text_center)
 
 #entertainment area text
 entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
 entertainment_area_text = entertainment_area_text.render("Entertainment", True, black, None)
 entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
-screen.blit(entertainment_area_text, entertainment_area_text_center)
+#screen.blit(entertainment_area_text, entertainment_area_text_center)
 
-foodStoppoint = stoppoint (375, 170, black, screen)
-homedecorStoppoint = stoppoint (700, 300, black, screen)
-entertainmentStoppoint = stoppoint (375, 400, black, screen)
-pygame.display.update()
+#foodStoppoint = stoppoint (375, 170, black, screen)
+#homedecorStoppoint = stoppoint (700, 300, black, screen)
+#entertainmentStoppoint = stoppoint (375, 400, black, screen)
+
 
 def store_area_click(x,y):
   if pygame.mouse.get_pos() == foodStoppoint:
@@ -106,7 +102,7 @@ textRectObj4.center = (30,370)
 screen.blit(textObj4,textRectObj4)
 
 pygame.draw.line(screen,black,(140,0),(140,600)) # draw line
-
+# pygame.display.update()
 # game loop
 while True:   #running = True  
     for event in pygame.event.get():
@@ -116,4 +112,13 @@ while True:   #running = True
         if event.type == MOUSEBUTTONDOWN:
             click = pygame.mouse.get_pos()
             print(click)
+    food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
+    home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
+    entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
+    screen.blit(food_area_text, food_area_text_center)
+    screen.blit(home_decor_area_text, home_decor_area_text_center)
+    screen.blit(entertainment_area_text, entertainment_area_text_center)
+    foodStoppoint = stoppoint (375, 170, black, screen)
+    homedecorStoppoint = stoppoint (700, 300, black, screen)
+    entertainmentStoppoint = stoppoint (375, 400, black, screen)
     pygame.display.update()
