@@ -21,7 +21,7 @@ pygame.display.set_caption("Welcome to the Store! Click on an item to add it to 
 screen.fill(white)
 
 class shelving:
-  def __init__ (self)
+  def __init__ (self):
     shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
     shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
     shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
