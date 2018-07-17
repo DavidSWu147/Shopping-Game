@@ -12,8 +12,7 @@ red = (255, 0, 0)
 pink= (255,200, 200)
 
 #The Class that belongs to each product on the store shelves.
-class product:
-This     
+class product:    
     def __init__(self, name, image, price, Color, X, Y):
         self.name= name
         self.image= pygame.image.load(image)
@@ -22,8 +21,7 @@ This
         self.Y= Y
         self.price= price
         
-
-        self.rect= self.image.get_rect(topleft=(self.X, self.Y))
+        self.rect= self.image.get_rect(topleft=(self.X, self.Y)
         self.width= self.image.get_width()
         self.height= self.image.get_height()
         
@@ -45,4 +43,4 @@ class stoppoint:
         
         self.color= color
 
-        self.triangle= self.triangle= pygame.draw.polygon(self, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 20)],1)
+        self.triangle= pygame.draw.polygon(Screen, black, [(X,Y), (X + 30, Y), (X + 15, Y + 20)],1)
