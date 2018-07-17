@@ -9,7 +9,7 @@ class StoreFront(object):
 
         self.displaySize = (900,600)
         self.screen = pygame.Surface(self.displaySize)
-        self.panelName = 'Store Front'
+        self.panelName = 'StoreFront'
 
         self.BLACK = (0,0,0)
         self.GRAY = (128,128,128)
@@ -34,9 +34,16 @@ class StoreFront(object):
         self.text = self.fontMaster.render('Entrance',False,self.BLACK)
         self.screen.blit(self.text,(330,230))
 
+        #Draw a back button
+        pygame.draw.rect(self.screen,self.BLACK,[0,0,50,50],2)
+        pygame.draw.polygon(self.screen,self.BLACK,[(40,10),(10,25),(40,40)],0)
+
     def handleEvent(self,event):
         if event.type == pygame.MOUSEBUTTONUP:
             self.curPos = pygame.mouse.get_pos()
             if 300 < self.curPos[0] and self.curPos[0] < 600 \
                         and 300 < self.curPos[1] and self.curPos[1] < 500:
-                return 'Query'
+                return 'InputBudget'
+            elif 0 < self.curPos[0] and self.curPos[0] < 50 \
+                        and 0 < self.curPos[1] and self.curPos[1] < 50:
+                return 'MainMenu'
