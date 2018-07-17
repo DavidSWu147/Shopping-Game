@@ -72,13 +72,13 @@ pygame.display.update()
 #defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
 def store_area_click(x,y):
   pygame.mouse.get_pressed
-  if pygame.mouse.get_pos() = foodStoppoint:
+  if pygame.mouse.get_pos() == foodStoppoint:
     screen.fill(white)
     screen.blit(shelving)
-  if pygame.mouse.get_pos() = homedecorStoppoint:
+  if pygame.mouse.get_pos() == homedecorStoppoint:
     screen.fill(white)
     screen.blit(shelving)
-  if pygame.mouse.get_pos() = entertainmentStoppoint:
+  if pygame.mouse.get_pos() == entertainmentStoppoint:
     screen.fill(white)
     screen.blit(shelving)    
     
