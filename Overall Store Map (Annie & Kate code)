@@ -62,7 +62,6 @@ textObj4 = fontObj.render('extra:',True,black,bisque)
 textRectObj4 = textObj4.get_rect()
 textRectObj4.center = (30,370)
 
-
 screen.fill(white)
 
 def store_area_click(x,y):
@@ -78,7 +77,7 @@ def store_area_click(x,y):
 
 class stoppoint:
 
-    def __init__(self, X, Y, color, screen):
+    def __init__(self, X, Y, color, screen, name):
         self.X= X
         self.Y= Y
         self.color= color
@@ -87,9 +86,9 @@ class stoppoint:
 class shelving:
 
   def __init__ (self):
-    shelving1 = pygame.draw.rect(screen, black, (0,0,900,200), 10)
-    shelving2 = pygame.draw.rect(screen, black, (0,200,900,200), 10)
-    shelving3 = pygame.draw.rect(screen, black, (0,400,900,200), 10)
+    shelving1 = pygame.draw.rect(screen, black, (140,0,760,200), 10)
+    shelving2 = pygame.draw.rect(screen, black, (140,200,760,200), 10)
+    shelving3 = pygame.draw.rect(screen, black, (140,400,760,200), 10)
 
     #shelving instructions text
     shelving_instructions_text = pygame.font.Font("freesansbold.ttf", 15)
@@ -98,6 +97,9 @@ class shelving:
     screen.blit(shelving_instructions_text, shelving_instructions_text_center)
     shelving_instructions_text_rect = shelving_instructions_text.get_rect()
 
+class store_section:
+    
+    def __init__(self)
 
 # pygame.display.update()
 # game loop
@@ -106,6 +108,7 @@ while True:   #running = True
         if event.type == QUIT:     
             pygame.quit()
             sys.exit()
+          
         if event.type == MOUSEBUTTONDOWN:
             click = pygame.mouse.get_pos()
             if click 
