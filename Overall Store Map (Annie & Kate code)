@@ -70,7 +70,6 @@ entertainmentStoppoint = stoppoint (375, 400, black, screen)
 pygame.display.update()
 
 def store_area_click(x,y):
-  pygame.mouse.get_pressed
   if pygame.mouse.get_pos() == foodStoppoint:
     screen.fill(white)
     screen.blit(shelving)
@@ -107,9 +106,13 @@ screen.blit(textObj4,textRectObj4)
 
 pygame.draw.line(screen,black,(140,0),(140,600)) #画了一条线
 
+# game loop
 while True:   #running = True  
     for event in pygame.event.get():
         if event.type == QUIT:     
             pygame.quit()
             sys.exit()
+        if event.type == MOUSEBUTTONDOWN:
+            click = pygame.mouse.get_pos()
+            print(click)
     pygame.display.update()
