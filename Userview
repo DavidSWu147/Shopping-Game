@@ -1,0 +1,75 @@
+import pygame,sys
+from pygame import *
+pygame.init()
+white = (255,255,255)
+bisque = (255,228,196)
+black = (0,0,0)
+screen = pygame.display.set_mode([900,600])
+#The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
+
+screen = pygame.display.set_mode([900,600])
+screen.fill(white)
+
+#food area text
+food_area_text = pygame.font.Font("freesansbold.ttf", 20)
+food_area_text = food_area_text.render("Food", True, black, None)
+food_area_textrect = food_area_text.get_rect()
+food_area_text_center = (360,75)
+
+#home decor area text
+home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
+home_decor_area_text = home_decor_area_text.render("Home Decor", True, black, None)
+home_decor_area_textrect = home_decor_area_text.get_rect()
+home_decor_area_text_center = (765,300)
+#entertainment area text
+entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
+entertainment_area_text = entertainment_area_text.render("Entertainment", True, black, None)
+entertainment_area_textrect = entertainment_area_text.get_rect()
+entertainment_area_text_center = (360, 500)
+
+
+    # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
+    #def store_area_click(x,y):
+    # pygame.getMouse()
+    #  if pygame.getMouse = 
+    # else:
+        #  break
+
+fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+textObj1 = fontObj.render('budget:',True,black,bisque)
+textRectObj1 = textObj1.get_rect()
+textRectObj1.center = (40,20)
+screen.fill(white)
+
+textObj2 = fontObj.render('remaining:',True,black,bisque)
+textRectObj2 = textObj2.get_rect()
+textRectObj2.center = (50,80)
+
+textObj3 = fontObj.render('shopping list:',True,black,bisque)
+textRectObj3 = textObj3.get_rect()
+textRectObj3.center = (60,140)
+
+textObj4 = fontObj.render('cart:',True,black,bisque)
+textRectObj4 = textObj4.get_rect()
+textRectObj4.center = (30,370)
+
+pygame.draw.line(screen,black,(140,0),(140,600),15) #画了一条线
+
+while True:   #running = True  
+    for event in pygame.event.get():
+        if event.type == QUIT:     
+            pygame.quit()
+            sys.exit()
+    food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
+    home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
+    entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
+    screen.blit(textObj1,textRectObj1)
+    screen.blit(textObj2,textRectObj2)
+    screen.blit(textObj3,textRectObj3)
+    screen.blit(textObj4,textRectObj4)
+    screen.blit(entertainment_area_text, entertainment_area_text_center)
+    screen.blit(home_decor_area_text, home_decor_area_text_center)
+    screen.blit(food_area_text, food_area_text_center)
+    
+    pygame.display.update()
+
