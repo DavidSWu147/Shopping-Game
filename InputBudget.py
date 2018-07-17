@@ -60,7 +60,7 @@ class InputBudget(object):
             self.curKey = event.key
 
             if self.curKey == pygame.K_RETURN:
-                return 'Query'
+                return 'OverallStoreMap'
             elif self.curKey == pygame.K_BACKSPACE:
                 self.initialBudget = 0
             elif self.initialBudget < 100:

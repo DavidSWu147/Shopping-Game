@@ -3,6 +3,7 @@ from MainMenu import MainMenu
 from StoreFront import StoreFront
 from InputDepartment import InputDepartment
 from InputBudget import InputBudget
+from OverallStoreMap import OverallStoreMap
 
 '''
 @author David Wu
@@ -48,6 +49,7 @@ class MasterClass(object):
         self.storeFront = StoreFront(self)
         self.inputDepartment = InputDepartment(self)
         self.inputBudget = InputBudget(self)       
+        self.overallStoreMap = OverallStoreMap(self)
 
     def __str__(self):
         return 'Master Class'
@@ -68,6 +70,9 @@ class MasterClass(object):
                     if command == 'Query':
                         self.currentClass = None
                         self.currentScreen = None
+                    elif command == 'OverallStoreMap':
+                        self.currentClass = self.overallStoreMap
+                        self.currentScreen = self.overallStoreMap.screen
                     elif command == 'InputDepartment':
                         self.currentClass = self.inputDepartment
                         self.currentScreen = self.inputDepartment.screen
