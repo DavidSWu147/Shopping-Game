@@ -81,9 +81,6 @@ def store_area_click(x,y):
   if pygame.mouse.get_pos() == entertainmentStoppoint:
     screen.fill(white)
     screen.blit(shelving)    
-    
-    else:
-      
 
 #Annie's Code
 #The origin of the display, where x = 0 and y = 0, is the top left of the screen. Both axes increase positively towards the bottom right of the screen.
