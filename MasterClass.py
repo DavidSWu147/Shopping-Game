@@ -6,6 +6,9 @@ from InputBudget import InputBudget
 from OverallStoreMap import OverallStoreMap
 
 '''
+@author Evan Degroote
+@author Kate Wilson
+@author Annie (Chu) Li
 @author David Wu
 '''
 class MasterClass(object):
