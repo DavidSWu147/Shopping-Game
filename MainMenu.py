@@ -9,7 +9,7 @@ class MainMenu(object):
 
         self.displaySize = (900,600)
         self.screen = pygame.Surface(self.displaySize)
-        self.panelName = 'Main Menu'
+        self.panelName = 'MainMenu'
 
         self.BLACK = (0,0,0)
         self.GRAY = (128,128,128)
