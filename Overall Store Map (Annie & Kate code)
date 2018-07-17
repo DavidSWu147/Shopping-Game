@@ -105,11 +105,6 @@ while True:   #running = True
             pygame.quit()
             sys.exit()
           
-        if event.type == MOUSEBUTTONDOWN:
-            click = pygame.mouse.get_pos()
-            if click 
-
-            print(click)
     food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
     home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
     entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
