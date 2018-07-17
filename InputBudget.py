@@ -17,6 +17,7 @@ class InputBudget(object):
         self.fontMaster = None
 
         self.initialBudget = 0
+        self.recommendedBudgets = {'':(0,0),'Food':(20,30),'Home':(150,200),'Entertainment':(50,60)}
 
     def __str__(self):
         return self.panelName        
@@ -27,9 +28,9 @@ class InputBudget(object):
         pygame.draw.rect(self.screen,self.BLACK,[100,100,700,400],5) 
         pygame.draw.rect(self.screen,self.BLACK,[200,300,500,100],2)
 
-        self.fontMaster = pygame.font.SysFont('Calibri',36)
+        self.fontMaster = pygame.font.SysFont('Calibri',48)
         self.text = self.fontMaster.render('Set Your Budget',False,self.BLACK)
-        self.screen.blit(self.text,(330,230))
+        self.screen.blit(self.text,(290,210))
 
         #Draw a back button
         pygame.draw.rect(self.screen,self.BLACK,[0,0,50,50],2)
@@ -37,8 +38,16 @@ class InputBudget(object):
 
         #Draw the budget in dollars
         self.fontMaster = pygame.font.SysFont('Calibri',64)
-        self.text = self.fontMaster.render('$' + str(self.initialBudget),False,self.BLACK)
+        self.text = self.fontMaster.render('$' + str(self.initialBudget) + '.00',False,self.BLACK)
         self.screen.blit(self.text,(220,320))
+
+        #Recommended budget at the bottom
+        self.departmentChoice = self.masterClass.inputDepartment.departmentChoice
+        self.rec = self.recommendedBudgets[self.departmentChoice]
+        self.fontMaster = pygame.font.SysFont('Calibri',32)
+        self.text = self.fontMaster.render('Recommended Budget: $' + \
+                str(self.rec[0]) + ' ~ $' + str(self.rec[1]),False,self.BLACK)
+        self.screen.blit(self.text,(220,440))
 
     def handleEvent(self,event):
         if event.type == pygame.MOUSEBUTTONUP:
@@ -46,7 +55,7 @@ class InputBudget(object):
             if 0 < self.curPos[0] and self.curPos[0] < 50 \
                         and 0 < self.curPos[1] and self.curPos[1] < 50:
                 self.initialBudget = 0
-                return 'StoreFront'
+                return 'InputDepartment'
         elif event.type == pygame.KEYUP:
             self.curKey = event.key
 

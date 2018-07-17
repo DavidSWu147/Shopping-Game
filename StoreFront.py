@@ -43,7 +43,7 @@ class StoreFront(object):
             self.curPos = pygame.mouse.get_pos()
             if 300 < self.curPos[0] and self.curPos[0] < 600 \
                         and 300 < self.curPos[1] and self.curPos[1] < 500:
-                return 'InputBudget'
+                return 'InputDepartment'
             elif 0 < self.curPos[0] and self.curPos[0] < 50 \
                         and 0 < self.curPos[1] and self.curPos[1] < 50:
                 return 'MainMenu'
