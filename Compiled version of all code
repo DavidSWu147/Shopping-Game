@@ -1,210 +1,40 @@
-#David's code
-import sys, pygame, math, time
-
-class MainMenu(object):  
-
-    def __init__(self, mC):
-        pygame.init()
-
-        self.masterClass = mC
-
-        self.displaySize = (900,600)
-        self.screen = pygame.Surface(self.displaySize)
-        self.panelName = 'Main Menu'
-
-        self.BLACK = (0,0,0)
-        self.WHITE = (255,255,255)
-        self.fontMaster = None
-
-    def __str__(self):
-        return self.panelName
-    
-    '''
-    Don't call this method!
-    Will not work because screen has not been set using display.set_mode()
-    '''
-    def run(self):
-        self.draw()
-        pygame.display.update()
-        
-        self.hasExited = False
-        while not self.hasExited:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.hasExited = True
-                elif event.type == pygame.MOUSEBUTTONUP:
-                    self.curPos = pygame.mouse.get_pos()
-                    if 300 < self.curPos[0] and self.curPos[0] < 600 \
-                            and 300 < self.curPos[1] and self.curPos[1] < 400:
-                        self.hasExited = True
-
-            self.draw() 
-            pygame.display.update()           
-
-    def draw(self):
-        self.screen.fill(self.WHITE)    
-
-        self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
-        self.text = self.fontMaster.render('Dollar Chopper',False,self.BLACK)
-        self.screen.blit(self.text,(250,100))
-
-        pygame.draw.rect(self.screen,self.BLACK,[300,300,300,100],5)
-        self.fontMaster = pygame.font.SysFont('Calibri',36)
-        self.text = self.fontMaster.render('Click Here to Enter',False,self.BLACK)
-        self.screen.blit(self.text,(317,332))
-
-    def handleEvent(self,event):
-        if event.type == pygame.MOUSEBUTTONUP:
-            self.curPos = pygame.mouse.get_pos()
-            if 300 < self.curPos[0] and self.curPos[0] < 600 \
-                        and 300 < self.curPos[1] and self.curPos[1] < 400:
-                return 'next screen'
-
-
-'''
-@author David Wu
-'''
-class MasterClass(object):
-    
-    def __init__(self):
-        pygame.init()
-
-        self.initializeClasses()
-
-        self.displaySize = (900,600)
-        self.masterScreen = pygame.display.set_mode(self.displaySize)
-        self.panelName = 'Dollar Chopper'
-        pygame.display.set_caption(self.panelName)
-
-        #class with the current screen
-        self.currentClass = None
-        #current screen to be blitted on to the masterScreen (not the class)
-        self.currentScreen = None 
-
-        self.BLACK = (0,0,0)
-        self.GRAY = (128,128,128)
-        self.WHITE = (255,255,255)
-        self.RED = (255,0,0)
-        self.GREEN = (0,255,0)
-        self.BLUE = (0,0,255)        
-
-    def initializeClasses(self):
-        self.mainMenu = MainMenu(self)
-
-    def __str__(self):
-        return 'Master Class'
-
-    def run(self):
-        self.currentClass = self.mainMenu
-        self.mainMenu.draw()
-        self.currentScreen = self.mainMenu.screen
-        self.draw()
-        
-        self.hasExited = False
-        while not self.hasExited:
-            events = pygame.event.get()
-            for event in events:
-                if event.type == pygame.QUIT:
-                    self.hasExited = True
-                elif self.currentClass != None:
-                    command = self.currentClass.handleEvent(event)
-                    if command == 'next screen':
-                        #placeholders, also can change above line
-                        self.currentClass = None
-                        self.currentScreen = None
-
-            self.draw()
-
-    def draw(self):
-        self.masterScreen.fill(self.GRAY)
-
-        if self.currentScreen == None:
-            self.masterScreen.fill(self.GRAY)
-        else:
-            self.masterScreen.blit(self.currentScreen,(0,0))
-
-        pygame.display.update()
-
-obj = MasterClass()
-obj.run()
-
-#Evan's Code
-class product:
-    
-    def __init__(self, name, image, price, Color, X, Y):
-        self.name= name
-        self.image= pygame.image.load(image)
-        self.Color= Color
-        self.X= X
-        self.Y= Y
-        self.price= price
-        
-
-        self.rect= self.image.get_rect(topleft=(self.X, self.Y))
-        self.width= self.image.get_width()
-        self.height= self.image.get_height()
-        
-        myfont = pygame.font.SysFont("monospace", 15)
-        product_name= myfont.render('self.name', 1, self.Color)
-        screen.blit(product_name, (self.X, self.Y))
-
-        myfont = pygame.font.SysFont("monospace", 10)
-        product_name= myfont.render('self.price', 1, self.Color)
-        screen.blit(product_name, (self.X, self.Y + 20))
-        # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
-
-
-class stoppoint:
-
-    def __init__(self, X, Y, color=black, width= 30):
-        self.X= X
-        self.Y= Y
-        self.width= width
-        self.color= color
-
-        self.triangle= pygame.draw.polygon(self, self.color, [(self.X,self.Y), (self.X + self.width, self.Y), (self.X + (self.width/2), self.Y + ((self.width/2) * math.sqrt(3)))])
-
 #Kate's and Annie's
 #Overall Store Map, created by Kate Wilson
 # setting up the window
-
-display = (display_width, display_height)
-
+import pygame, sys, math, time
+from pygame import *
+pygame.init()
 white = (255,255,255)
+bisque = (255,228,196)
 black = (0,0,0)
-blue = (0,0,255)
 
-display1 = pygame.display.set_mode(display)
-pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
-
-display1.fill(white)
-
-food_area = pygame.draw.rect(display1, black, (140,0,760,150),15)
-home_decor_area = pygame.draw.rect(display1, black, (750,150,150,750), 15)
-entertainment_area = pygame.draw.rect(display1, black, (140,450,610,150), 15)
+screen = pygame.display.set_mode([900,600])
+screen.fill(white)
+food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
+home_decor_area = pygame.draw.rect(screen, black, (750,150,150,750), 15)
+entertainment_area = pygame.draw.rect(screen, black, (140,450,610,150), 15)
 
 #food area text
 food_area_text = pygame.font.Font("freesansbold.ttf", 20)
 food_area_text = food_area_text.render("Food", True, black, None)
 food_area_textrect = food_area_text.get_rect()
 food_area_text_center = (360,75)
-display1.blit(food_area_text, food_area_text_center)
+screen.blit(food_area_text, food_area_text_center)
 
 #home decor area text
 home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
 home_decor_area_text = home_decor_area_text.render("Home Decor", True, black, None)
 home_decor_area_textrect = home_decor_area_text.get_rect()
 home_decor_area_text_center = (765,300)
-display1.blit(home_decor_area_text, home_decor_area_text_center)
+screen.blit(home_decor_area_text, home_decor_area_text_center)
 
 #entertainment area text
 entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
 entertainment_area_text = entertainment_area_text.render("Entertainment", True, black, None)
 entertainment_area_textrect = entertainment_area_text.get_rect()
 entertainment_area_text_center = (360, 500)
-display1.blit(entertainment_area_text, entertainment_area_text_center)
+screen.blit(entertainment_area_text, entertainment_area_text_center)
 
-pygame.display.update()
 
 # defining checkpoint clicks, will be replaced with Evan's class definitions for checkpoints later
 #def store_area_click(x,y):
@@ -219,7 +49,6 @@ fontObj = pygame.font.Font('freesansbold.ttf', 14)
 textObj1 = fontObj.render('budget:',True,black,bisque)
 textRectObj1 = textObj1.get_rect()
 textRectObj1.center = (40,20)
-screen.fill(white)
 screen.blit(textObj1,textRectObj1) #画出了budget
 
 textObj2 = fontObj.render('now:',True,black,bisque)
@@ -234,10 +63,10 @@ screen.blit(textObj3,textRectObj3)
 
 textObj4 = fontObj.render('extra:',True,black,bisque)
 textRectObj4 = textObj4.get_rect()
-textRectObj4.center = (30,37,0)
+textRectObj4.center = (30,370)
 screen.blit(textObj4,textRectObj4)
 
-pygame.draw.line(screen,black,(140,0),(140,600)) #画了一条线
+pygame.draw.line(screen,black,(140,0),(140,600),15) #画了一条线
 
 while True:   #running = True  
     for event in pygame.event.get():
