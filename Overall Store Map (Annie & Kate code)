@@ -12,6 +12,7 @@ screen = (display_width, display_height)
 white = (255,255,255)
 black = (0,0,0)
 blue = (0,0,255)
+bisque = (255,228,196)
 
 screen = pygame.display.set_mode(screen)
 pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
