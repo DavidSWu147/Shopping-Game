@@ -6,8 +6,8 @@ from pygame import *
 class EndCards:
 
   def __init__(self):
-    if int(InputBudget(self)) - sum[cartList] >= 0:
+    if int(InputBudget(self)) - sum[cartList.prices] >= 0:
       print("Congratualations! You've won! Great job staying focused and on budget.")
-    if int(InputBudget(self)) - sum[cartList] < 0:
+    if int(InputBudget(self)) - sum[cartList.prices] < 0:
       print("You went over budget! Please select which items you would like to remove from your cart.")
   
