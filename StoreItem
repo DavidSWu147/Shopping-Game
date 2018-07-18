@@ -16,7 +16,7 @@ pink= (255,200, 200)
 
 class product:
     Pricecount= 0
-    def __init__(self, screen, name, image, price, Color, X, Y):
+    def __init__(self, screen, name, image, price, Color, X, Y, section):
         self.name= name
         self.image = pygame.image.load(image).convert()
         self.Color= Color
@@ -24,6 +24,13 @@ class product:
         self.Y= Y
         self.price= price
         self.rect = self.image.get_rect()
+        self.section = section
+        if section = "food":
+            add to [foodSection]
+        if section = "homedecor":
+            add to [homedecorSection]
+        if section = "entertainment":
+            add to [entertainmentSection]
         
         myfont = pygame.font.SysFont("monospace", 15, True)
         product_name= myfont.render(self.name, 1, self.Color)
