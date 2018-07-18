@@ -25,3 +25,4 @@ for stoppoint in stoppoints:
         load StoreSection(homedecorSection)
     if stoppoint.name = "entertainment":
         load StoreSection(entertainmentSection)
+    pygame.display.set_caption("Click on an item to add it to your cart and subtract the price from your budget.")
