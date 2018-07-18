@@ -18,6 +18,8 @@ class OverallStoreMap(object):
 
         self.masterClass = mC
         # setting up the window
+        
+    def draw(self):
         self.display_width = 900
         self.display_height = 600
 
@@ -30,9 +32,10 @@ class OverallStoreMap(object):
 
         self.screen = pygame.Surface(self.screenSize)
 
-    def draw(self):
         #Overall Store Map, created by Kate Wilson
         self.screen.fill(self.white)
+        
+        checkout_button = pygame.draw.rect(self.screen, self.black, (300,300,10,10), 10)
 
         food_area = pygame.draw.rect(self.screen, self.black, (140,0,760,150),15)
         home_decor_area = pygame.draw.rect(self.screen, self.black, (750,150,150,750), 15)
