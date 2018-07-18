@@ -1,8 +1,10 @@
 import pygame
 from pygame import*
 from InputBudget import InputBudget
+from InputDepartment import InputDepartment
+from MasterClass import MasterClass
 
-class Cart(self):
+class Cart(object):
     def __init__(self):
         pygame.init()
         self.initializeClasses()
@@ -15,13 +17,13 @@ class Cart(self):
     def collision(self, click):
         return self.rect.collidepoint(click)
     
-    def addtocart(self, item):
+    def AddToCart(self, item):
         self.text = "Cart : \n"
-        self.text = self.text + item.name+ \n
+        self.text = self.text + item.name+ "\n"
         if item.collision(click):
-            Cart.addtocart(self.item)
+            Cart.AddToCart(self.text)
 
-class Budget(self):
+class Budget(object):
     def __init__(self):
         pygame.init()
         self.initializeClasses()
@@ -34,7 +36,7 @@ class Budget(self):
     self.initialBudget_rect = self.initialBudget.get_rect()
     self.screen.blit(self.initialBudget, self.initialBudget_rect)
 
-class Remaining(self):
+class Remaining(object):
     def __init__(self):
         pygame.init()
         self.initializeClasses()
@@ -43,6 +45,23 @@ class Remaining(self):
         self.black = (0,0,0)
         self.blue = (0,0,255)
         self.bisque = (255,228,196)
-        self.RemainingMoney = self.initialBudget - item.price
 
-class Shoppinglist
+    def remaining(self, text):
+        self.text = 'Remaining: \n'
+        if self.departmentChoice == 'Food':
+            self.remaining = self.initialBudget - self.foodPrices
+        if self.departmentChoice == 'Home':
+            self.remaining = self.initialBudget - self.homePrices
+        if self.departmentChoice == 'Entertainment':
+            self.remaining = self.initialBudget - self.entertainmentPrices
+        
+        self.screen.blit(self.text, self.remaining)
+
+class Shoppinglist(object):
+    def collision(self, click):
+        return self.rect.collidepoint(click)
+    def AddToShoppinglist(self, item):
+        self.text = "Shoppinglist : \n"
+        self.text = self.text + item.name+ "\n"
+        if item.collision(click):
+            Shoppinglist.AddToShoppinglist(self.text)
