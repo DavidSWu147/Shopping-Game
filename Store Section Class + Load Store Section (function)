@@ -10,8 +10,6 @@ class StoreSection:
     def collision(self):
         for item in self.items:
         item.collidepoint()
-    shelving.draw()
-
 # create store sections using class definitions
 foodSection = StoreSection("food")
 homedecorSection = StoreSection("homedecor")
