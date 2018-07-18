@@ -3,3 +3,12 @@
 import pygame, math, sys
 from pygame import *
 
+items = []
+class Cart(self)
+  def __init__(self,num,items)
+    self.num = num
+    self.items = items
+    items.append(
+    
+for item in items:
+  if item
