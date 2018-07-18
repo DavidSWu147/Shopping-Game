@@ -1,3 +1,6 @@
+'''
+@author Annie Li
+'''
 import pygame
 from pygame import*
 from InputBudget import InputBudget
