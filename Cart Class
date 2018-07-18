@@ -8,7 +8,8 @@ class Cart(self)
   def __init__(self,num,items)
     self.num = num
     self.items = items
-    items.append(
+    items.append(Cart)
+    print (Cart)
     
 for item in items:
   if item
