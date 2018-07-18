@@ -1,54 +1,38 @@
 '''
 @author Annie Li
 '''
-import pygame
+import pygame, InputBudget, InputDepartment, MasterClass, StoreItem
 from pygame import*
 from InputBudget import InputBudget
 from InputDepartment import InputDepartment
 from MasterClass import MasterClass
+from StoreItem import StoreItem
 
 click = pygame.mouse.get_pos()
 class Cart(object):
     def __init__(self):
         pygame.init()
-        self.initializeClasses()
-        self.screen = (900,600)
-        self.white = (255,255,255)
-        self.black = (0,0,0)
-        self.blue = (0,0,255)
-        self.bisque = (255,228,196)
 
     def collision(self, click):
         return self.rect.collidepoint(click)
     
     def AddToCart(self, item):
         self.text = "Cart : \n"
-        self.text = self.text + item.name+ "\n"
+        self.text = self.text + product_name+ "\n"
         if item.collision(click):
             Cart.AddToCart(self.text)
 
 class Budget(object):
     def __init__(self):
         pygame.init()
-        self.initializeClasses()
-        self.screen = (900,600)
-        self.white = (255,255,255)
-        self.black = (0,0,0)
-        self.blue = (0,0,255)
-        self.bisque = (255,228,196)
-    self.initialBudget.center = (40, 25)
-    self.initialBudget_rect = self.initialBudget.get_rect()
-    self.screen.blit(self.initialBudget, self.initialBudget_rect)
+    def budget(self):
+        self.initialBudget.center = (40, 25)
+        self.initialBudget_rect = self.initialBudget.get_rect()
+        self.screen.blit(self.initialBudget, self.initialBudget_rect)
 
 class Remaining(object):
     def __init__(self):
         pygame.init()
-        self.initializeClasses()
-        self.screen = (900,600)
-        self.white = (255,255,255)
-        self.black = (0,0,0)
-        self.blue = (0,0,255)
-        self.bisque = (255,228,196)
 
     def remaining(self, text):
         self.text = 'Remaining: \n'
@@ -62,10 +46,12 @@ class Remaining(object):
         self.screen.blit(self.text, self.remaining)
 
 class Shoppinglist(object):
+    def __init__(self):
+        pygame.init()
     def collision(self, click):
         return self.rect.collidepoint(click)
     def AddToShoppinglist(self, item):
         self.text = "Shoppinglist : \n"
-        self.text = self.text + item.name+ "\n"
+        self.text = self.text + product_name+ "\n"
         if item.collision(click):
             Shoppinglist.AddToShoppinglist(self.text)
