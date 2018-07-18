@@ -7,8 +7,6 @@ class EndCards:
 
   def __init__(self):
     
-    
-    
     displaySize= (900, 600)
     screen = display.set_mode(displaySize)
     screen.fill(white)
@@ -18,3 +16,4 @@ class EndCards:
     if int(InputBudget(self)) - sum[cartList.prices] < 0:
       print("You went over budget! Please select which items you would like to remove from your cart.")
   
+click
