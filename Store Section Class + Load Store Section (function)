@@ -13,9 +13,9 @@ class StoreSection:
   shelving.draw()
 
 # create store sections using class definitions
-foodSection = StoreSection(food)
-homedecorSection = StoreSection(homedecor)
-entertainmentSection = StoreSection(entertainment)
+foodSection = StoreSection("food")
+homedecorSection = StoreSection("homedecor")
+entertainmentSection = StoreSection("entertainment")
 # check to see collision with stoppoint and area and load the appropriate section, shelving, and items
 for stoppoint in stoppoints:
   if stoppoint.collidepoint(click):
