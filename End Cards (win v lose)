@@ -6,6 +6,13 @@ from pygame import *
 class EndCards:
 
   def __init__(self):
+    
+    
+    
+    displaySize= (900, 600)
+    screen = display.set_mode(displaySize)
+    screen.fill(white)
+    
     if int(InputBudget(self)) - sum[cartList.prices] >= 0:
       print("Congratualations! You've won! Great job staying focused and on budget.")
     if int(InputBudget(self)) - sum[cartList.prices] < 0:
