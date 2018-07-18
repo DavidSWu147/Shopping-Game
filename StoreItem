@@ -26,11 +26,11 @@ class product:
         self.rect = self.image.get_rect()
         self.section = section
         if section = "food":
-            add to [foodSection]
+            add to food.items
         if section = "homedecor":
-            add to [homedecorSection]
+            add to homedecor.items
         if section = "entertainment":
-            add to [entertainmentSection]
+            add to entertainment.items
         
         myfont = pygame.font.SysFont("monospace", 15, True)
         product_name= myfont.render(self.name, 1, self.Color)
