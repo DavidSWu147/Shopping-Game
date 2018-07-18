@@ -3,7 +3,9 @@ from MainMenu import MainMenu
 from StoreFront import StoreFront
 from InputDepartment import InputDepartment
 from InputBudget import InputBudget
+from InputShoppingList import InputShoppingList
 from OverallStoreMap import OverallStoreMap
+from Shelving import Shelving
 
 '''
 @author Evan Degroote
@@ -16,9 +18,20 @@ class MasterClass(object):
     def __init__(self):
         pygame.init()
 
+        self.foodItems = ['Bread','Lemonade','Milk','Cereal','Orange Juice','Apples','Cake','Lettuce','Eggs']
+        self.homeItems = ['Wood','Windows','Wallpaper','Paint','Chair','Photo Frame','Lamp','Candle','Painting']
+        self.entertainmentItems = ['Rocking Horse','Chutes&Ladders','Playing Cards','Soccer Ball','1st Fairy Tales','Skateboard','Frisbee','Ping Pong Set','Doll']
+
+        self.foodPrices = {'Bread':2,'Lemonade':3,'Milk':2,'Cereal':3,  \
+                'Orange Juice':2,'Apples':1,'Cake':7,'Lettuce':1,'Eggs':2}
+        self.homePrices = {'Wood':16,'Windows':40,'Wallpaper':12,'Paint':5, \
+                'Chair':28,'Photo Frame':20,'Lamp':32,'Candle':3,'Painting':8}
+        self.entertainmentPrices = {'Rocking Horse':14,'Chutes&Ladders':6,'Playing Cards':1,'Soccer Ball':5, \
+                '1st Fairy Tales':10,'Skateboard':9,'Frisbee':3,'Ping Pong Set':4,'Doll':4}
+                
         self.initializeClasses()
 
-        self.displaySize = (900,600)
+        self.displaySize = (900,600)    
         self.masterScreen = pygame.display.set_mode(self.displaySize)
         self.panelName = 'Dollar Chopper'
         pygame.display.set_caption(self.panelName)
@@ -40,19 +53,16 @@ class MasterClass(object):
         self.CYAN = (0,255,255)
         self.MAGENTA = (255,0,255)      
 
-        self.foodPrices = {'Bread':2,'Lemonade':3,'Milk':2,'Cereal':3,  \
-                'Orange Juice':2,'Apples':1,'Cake':7,'Lettuce':1,'Eggs':2}
-        self.homePrices = {'Wood':16,'Windows':40,'Wallpaper':12,'Paint':5, \
-                'Chair':28,'Photo Frame':20,'Lamp':32,'Candle':3,'Painting':8}
-        self.entertainmentPrices = {'Rocking Horse':14,'Chutes and Ladders':6,'Playing Cards':1,'Soccer Ball':5, \
-                'My First Fairy Tales':10,'Skateboard':9,'Frisbee':3,'Ping Pong Set':4,'Doll':4}
+        
 
     def initializeClasses(self):
         self.mainMenu = MainMenu(self)
         self.storeFront = StoreFront(self)
         self.inputDepartment = InputDepartment(self)
         self.inputBudget = InputBudget(self)       
+        self.inputShoppingList = InputShoppingList(self)
         self.overallStoreMap = OverallStoreMap(self)
+        self.shelving = Shelving(self)
 
     def __str__(self):
         return 'Master Class'
@@ -73,12 +83,18 @@ class MasterClass(object):
                     if command == 'Query':
                         self.currentClass = None
                         self.currentScreen = None
+                    elif command == 'Shelving':
+                        self.currentClass = self.shelving
+                        self.currentScreen = self.shelving.screen
                     elif command == 'OverallStoreMap':
                         self.currentClass = self.overallStoreMap
                         self.currentScreen = self.overallStoreMap.screen
                     elif command == 'InputDepartment':
                         self.currentClass = self.inputDepartment
                         self.currentScreen = self.inputDepartment.screen
+                    elif command == 'InputShoppingList':
+                        self.currentClass = self.inputShoppingList
+                        self.currentScreen = self.inputShoppingList.screen
                     elif command == 'InputBudget':
                         self.currentClass = self.inputBudget
                         self.currentScreen = self.inputBudget.screen

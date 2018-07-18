@@ -30,7 +30,11 @@ class InputBudget(object):
 
         self.fontMaster = pygame.font.SysFont('Calibri',48)
         self.text = self.fontMaster.render('Set Your Budget',False,self.BLACK)
-        self.screen.blit(self.text,(290,210))
+        self.screen.blit(self.text,(290,190))
+
+        self.fontMaster = pygame.font.SysFont('Calibri',24)
+        self.text = self.fontMaster.render('Press Enter to Continue',False,self.BLACK)
+        self.screen.blit(self.text,(334,250))
 
         #Draw a back button
         pygame.draw.rect(self.screen,self.BLACK,[0,0,50,50],2)
@@ -42,7 +46,7 @@ class InputBudget(object):
         self.screen.blit(self.text,(220,320))
 
         #Recommended budget at the bottom
-        self.departmentChoice = self.masterClass.inputDepartment.departmentChoice
+        self.departmentChoice = self.getDepartmentChoice()
         self.rec = self.recommendedBudgets[self.departmentChoice]
         self.fontMaster = pygame.font.SysFont('Calibri',32)
         self.text = self.fontMaster.render('Recommended Budget: $' + \
@@ -60,7 +64,7 @@ class InputBudget(object):
             self.curKey = event.key
 
             if self.curKey == pygame.K_RETURN:
-                return 'OverallStoreMap'
+                return 'InputShoppingList'
             elif self.curKey == pygame.K_BACKSPACE:
                 self.initialBudget = 0
             elif self.initialBudget < 100:
@@ -86,6 +90,9 @@ class InputBudget(object):
                     self.initialBudget = self.initialBudget * 10 
 
         self.draw()
+
+    def getDepartmentChoice(self):
+        return self.masterClass.inputDepartment.departmentChoice
 
         
 
