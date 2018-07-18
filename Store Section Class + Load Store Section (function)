@@ -93,9 +93,9 @@ class OverallStoreMap(object):
         pygame.draw.line(self.screen,self.black,(140,0),(140,600),15) # draw line
             
 # the code below is for loading the shelves for each section with items
-#foodSection.items = [bread, milk, lemonade, cereal, orangejuice, fruit, cake, eggs, vegetables]
-#homedecorSection.items = [wood, windows, wallpaper, paint, chair, photoframe, lamp, candle, painting]
-#entertainmentSection.items = [rockinghorse, chutesandladders, cards, bookcollections, skateboard, frisbee, pingpong, dolls, soccerball]
+#foodSection.items = ["orangejuice","bread","lemonade","milk","cereal","apples","cake","lettuce","eggs"]
+#homedecorSection.items = ["wood", "windows", "wallpaper", "paint", "chair", "photoframe", "lamp", "candle", "painting"]
+#entertainmentSection.items = ["rockinghorse", "chutesandladders", "playingcards", "myfirstfairytales", "skateboard", "frisbee", "pingpongset", "dolls", "soccerball"]
 
 
 #foodSection = StoreSection(food)
