@@ -29,11 +29,11 @@ class InputBudget(object):
         pygame.draw.rect(self.screen,self.BLACK,[200,300,500,100],2)
 
         self.fontMaster = pygame.font.SysFont('Calibri',48)
-        self.text = self.fontMaster.render('Set Your Budget',False,self.BLACK)
+        self.text = self.fontMaster.render('Set Your Budget',True,self.BLACK)
         self.screen.blit(self.text,(290,190))
 
         self.fontMaster = pygame.font.SysFont('Calibri',24)
-        self.text = self.fontMaster.render('Press Enter to Continue',False,self.BLACK)
+        self.text = self.fontMaster.render('Press Enter to Continue',True,self.BLACK)
         self.screen.blit(self.text,(334,250))
 
         #Draw a back button
@@ -42,7 +42,7 @@ class InputBudget(object):
 
         #Draw the budget in dollars
         self.fontMaster = pygame.font.SysFont('Calibri',64)
-        self.text = self.fontMaster.render('$' + str(self.initialBudget) + '.00',False,self.BLACK)
+        self.text = self.fontMaster.render('$' + str(self.initialBudget) + '.00',True,self.BLACK)
         self.screen.blit(self.text,(220,320))
 
         #Recommended budget at the bottom
@@ -50,7 +50,7 @@ class InputBudget(object):
         self.rec = self.recommendedBudgets[self.departmentChoice]
         self.fontMaster = pygame.font.SysFont('Calibri',32)
         self.text = self.fontMaster.render('Recommended Budget: $' + \
-                str(self.rec[0]) + ' ~ $' + str(self.rec[1]),False,self.BLACK)
+                str(self.rec[0]) + ' ~ $' + str(self.rec[1]),True,self.BLACK)
         self.screen.blit(self.text,(220,440))
 
     def handleEvent(self,event):

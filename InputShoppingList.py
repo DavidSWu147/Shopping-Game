@@ -52,10 +52,10 @@ class InputShoppingList(object):
         dx = 0
         dy = 0
         for item in self.currentItems:
-            self.text = self.fontMaster.render(self.formatName(item),False,self.BLACK)
+            self.text = self.fontMaster.render(self.formatName(item),True,self.BLACK)
             self.screen.blit(self.text,(155+dx,285+dy))
             if item in self.shoppingList:
-                self.text = self.fontMaster.render(str(self.shoppingList[item]),False,self.BLACK)
+                self.text = self.fontMaster.render(str(self.shoppingList[item]),True,self.BLACK)
                 self.screen.blit(self.text,(161+dx,247+dy))
             #double iteration
             dy += 70
@@ -68,11 +68,11 @@ class InputShoppingList(object):
         pygame.draw.polygon(self.screen,self.BLACK,[(40,10),(10,25),(40,40)],0)
 
         self.fontMaster = pygame.font.SysFont('Calibri',36)
-        self.text = self.fontMaster.render('Select items to add to Shopping List',False,self.BLACK)
+        self.text = self.fontMaster.render('Select items to add to Shopping List',True,self.BLACK)
         self.screen.blit(self.text,(190,130))
 
         self.fontMaster = pygame.font.SysFont('Calibri',24)
-        self.text = self.fontMaster.render('Press Enter to Continue',False,self.BLACK)
+        self.text = self.fontMaster.render('Press Enter to Continue',True,self.BLACK)
         self.screen.blit(self.text,(334,190))
 
     def handleEvent(self,event):

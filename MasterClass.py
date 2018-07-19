@@ -7,6 +7,7 @@ from InputShoppingList import InputShoppingList
 from OverallStoreMap import OverallStoreMap
 from Shelving import Shelving
 
+
 '''
 @author Evan Degroote
 @author Kate Wilson
@@ -16,7 +17,7 @@ from Shelving import Shelving
 class MasterClass(object):
     
     def __init__(self):
-        pygame.init()
+        pygame.init()        
 
         self.foodItems = ['Bread','Lemonade','Milk','Cereal','Orange Juice','Apples','Cake','Lettuce','Eggs']
         self.homeItems = ['Wood','Windows','Wallpaper','Paint','Chair','Photo Frame','Lamp','Candle','Painting']
@@ -28,13 +29,12 @@ class MasterClass(object):
                 'Chair':28,'Photo Frame':20,'Lamp':32,'Candle':3,'Painting':8}
         self.entertainmentPrices = {'Rocking Horse':14,'Chutes&Ladders':6,'Playing Cards':1,'Soccer Ball':5, \
                 '1st Fairy Tales':10,'Skateboard':9,'Frisbee':3,'Ping Pong Set':4,'Doll':4}
-                
-        self.initializeClasses()
-
         self.displaySize = (900,600)    
         self.masterScreen = pygame.display.set_mode(self.displaySize)
         self.panelName = 'Dollar Chopper'
-        pygame.display.set_caption(self.panelName)
+        pygame.display.set_caption(self.panelName)   
+
+        self.initializeClasses()
 
         #class with the current screen
         self.currentClass = None
@@ -51,11 +51,10 @@ class MasterClass(object):
         self.BLUE = (0,0,255) 
         self.YELLOW = (255,255,0)
         self.CYAN = (0,255,255)
-        self.MAGENTA = (255,0,255)      
-
-        
+        self.MAGENTA = (255,0,255)             
 
     def initializeClasses(self):
+        
         self.mainMenu = MainMenu(self)
         self.storeFront = StoreFront(self)
         self.inputDepartment = InputDepartment(self)
@@ -63,17 +62,17 @@ class MasterClass(object):
         self.inputShoppingList = InputShoppingList(self)
         self.overallStoreMap = OverallStoreMap(self)
         self.shelving = Shelving(self)
-
+        
     def __str__(self):
         return 'Master Class'
 
     def run(self):
         self.currentClass = self.mainMenu
         self.currentScreen = self.mainMenu.screen
-        self.draw()
         
         self.hasExited = False
         while not self.hasExited:
+            self.draw()
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
@@ -105,7 +104,7 @@ class MasterClass(object):
                         self.currentClass = self.mainMenu
                         self.currentScreen = self.mainMenu.screen
 
-            self.draw()
+            
 
     def draw(self):
         self.masterScreen.fill(self.GRAY)

@@ -27,11 +27,11 @@ class StoreFront(object):
         pygame.draw.rect(self.screen,self.BLACK,[450,300,150,200],5)
 
         self.fontMaster = pygame.font.SysFont('Calibri',128)
-        self.text = self.fontMaster.render('Store',False,(192,192,192))
+        self.text = self.fontMaster.render('Store',True,(192,192,192))
         self.screen.blit(self.text,(315,110))
 
         self.fontMaster = pygame.font.SysFont('Calibri',64)
-        self.text = self.fontMaster.render('Entrance',False,self.BLACK)
+        self.text = self.fontMaster.render('Entrance',True,self.BLACK)
         self.screen.blit(self.text,(330,230))
 
         #Draw a back button

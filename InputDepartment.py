@@ -30,22 +30,22 @@ class InputDepartment(object):
         pygame.draw.rect(self.screen,self.BLACK,[500,300,100,100],2)
 
         self.fontMaster = pygame.font.SysFont('Calibri',48)
-        self.text = self.fontMaster.render('Choose a part of the Store',False,self.BLACK)
+        self.text = self.fontMaster.render('Choose a part of the Store',True,self.BLACK)
         self.screen.blit(self.text,(185,180))
 
         self.fontMaster = pygame.font.SysFont('Calibri',36)
-        self.text = self.fontMaster.render('Food',False,self.BLACK)
+        self.text = self.fontMaster.render('Food',True,self.BLACK)
         self.screen.blit(self.text,(315,336))
 
-        self.text = self.fontMaster.render('Home',False,self.BLACK)
+        self.text = self.fontMaster.render('Home',True,self.BLACK)
         self.screen.blit(self.text,(410,320))
-        self.text = self.fontMaster.render('Decor',False,self.BLACK)
+        self.text = self.fontMaster.render('Decor',True,self.BLACK)
         self.screen.blit(self.text,(408,360))
 
         self.fontMaster = pygame.font.SysFont('Calibri',24)
-        self.text = self.fontMaster.render('Enter-',False,self.BLACK)
+        self.text = self.fontMaster.render('Enter-',True,self.BLACK)
         self.screen.blit(self.text,(520,330))
-        self.text = self.fontMaster.render('tainment',False,self.BLACK)
+        self.text = self.fontMaster.render('tainment',True,self.BLACK)
         self.screen.blit(self.text,(510,360))
 
         #Draw a back button
