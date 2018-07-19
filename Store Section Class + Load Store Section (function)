@@ -166,14 +166,3 @@ while True:
                 clickstoresection = StoreSection
      if clickstoresection != "":
         clickstoresection.draw()
-        
-# check to see collision with stoppoint and area and load the appropriate section and items
-#for stoppoint in stoppoints:
- #  if stoppoint.collidepoint(click):
-  #     if stoppoint.name = "food":
-   #    load StoreSection(foodSection)
-    #if stoppoint.name = "homedecor":
-     #   load StoreSection(homedecorSection)
- #   if stoppoint.name = "entertainment":
-  #      load StoreSection(entertainmentSection)
-   # pygame.display.set_caption("Click on an item to add it to your cart and subtract the price from your budget.")
