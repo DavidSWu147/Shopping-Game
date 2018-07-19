@@ -1,12 +1,13 @@
 '''
 @author Annie Li
 '''
-import pygame, InputBudget, InputDepartment, MasterClass, StoreItem
+import pygame, InputBudget, InputDepartment, MasterClass, StoreItem, InputShoppingList
 from pygame import*
 from InputBudget import InputBudget
 from InputDepartment import InputDepartment
 from MasterClass import MasterClass
 from StoreItem import StoreItem
+from InputShoppingList import InputShoppingList
 
 click = pygame.mouse.get_pos()
 class Cart(object):
@@ -18,17 +19,31 @@ class Cart(object):
     
     def AddToCart(self, item):
         self.text = "Cart : \n"
-        self.text = self.text + product_name+ "\n"
+        self.text = self.text + self.product+ "\n"
         if item.collision(click):
             Cart.AddToCart(self.text)
 
 class Budget(object):
-    def __init__(self):
-        pygame.init()
-    def budget(self):
-        self.initialBudget.center = (40, 25)
-        self.initialBudget_rect = self.initialBudget.get_rect()
-        self.screen.blit(self.initialBudget, self.initialBudget_rect)
+    white = (255, 255, 255) 
+    def __init__(self, x, y, screen, text, budget, texttype, textsize):
+        self.x= x
+        self.y = y
+        self.screen = screen
+        self.budget = budget
+        self.text = text + str(budget)
+        self.font = pygame.font.Font(texttype, textsize)
+        self.renderabletext = self.font.render(text, True,black)
+
+    def draw(self):
+        self.screen.blit(self.renderabletext, (self.x,self.y))
+    
+    # def budget(self):
+    #     budget = self.masterClass.getBudget()
+    #     budgetObj = Budget(40,25,"Budget:", budget, "freesandsbold.ttf",14) 
+    #     #self.masterClass.inputBudget.initialBudget.center = (40, 25)
+    #     #self.masterClass.inputBudget.initialBudget = font.render('freesansbold', True, white)
+    #     self.screen.blit(self.budgetObj) 
+
 
 class Remaining(object):
     def __init__(self):
@@ -36,22 +51,20 @@ class Remaining(object):
 
     def remaining(self, text):
         self.text = 'Remaining: \n'
-        if self.departmentChoice == 'Food':
-            self.remaining = self.initialBudget - self.foodPrices
-        if self.departmentChoice == 'Home':
-            self.remaining = self.initialBudget - self.homePrices
-        if self.departmentChoice == 'Entertainment':
-            self.remaining = self.initialBudget - self.entertainmentPrices
+        if self.masterClass.inputDepartment.departmentChoice == 'Food':
+            self.remaining = self.masterClass.inputBudget.initialBudget - self.masterClass.foodPrices
+        if self.masterClass.inputDepartment.departmentChoice == 'Home':
+            self.remaining = self.masterClass.inputBudget.initialBudget - self.homePrices
+        if self.masterClass.inputDepartment.departmentChoice == 'Entertainment':
+            self.remaining = self.masterClass.inputBudget.initialBudget - self.entertainmentPrices
         
-        self.screen.blit(self.text, self.remaining)
+        print(self.text, self.remaining)
 
-class Shoppinglist(object):
+class ShoppingList(object):
     def __init__(self):
         pygame.init()
     def collision(self, click):
         return self.rect.collidepoint(click)
     def AddToShoppinglist(self, item):
-        self.text = "Shoppinglist : \n"
-        self.text = self.text + product_name+ "\n"
-        if item.collision(click):
-            Shoppinglist.AddToShoppinglist(self.text)
+        self.text = 'ShoppingList : \n'
+        print(self.masterClass.inputShoppingList.shoppinglist)
