@@ -66,10 +66,12 @@ class OverallStoreMap(object):
 
         #Annie's Code
         #The origin of the display, where x = 0 and y = 0, is the top left of the self.screen. Both axes increase positively towards the bottom right of the self.screen.
-        fontObj = pygame.font.Font('freesansbold.ttf', 14) 
-        textObj1 = fontObj.render('Budget:',True,self.black,self.bisque)
-        textRectObj1 = textObj1.get_rect()
-        textRectObj1.center = (40,20)
+        budget = self.masterClass.getBudget()
+        budgetObj = Budget(40,25,"Budget: ", budget, "freesandsbold.ttf", 14)
+        #fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+        #textObj1 = fontObj.render('Budget:',True,self.black,self.bisque)
+        #textRectObj1 = textObj1.get_rect()
+        #textRectObj1.center = (40,20)
         
         #self.screen.fill(self.white) ERROR
 
