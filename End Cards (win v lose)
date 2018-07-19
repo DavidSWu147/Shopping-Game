@@ -1,51 +1,52 @@
 # @author Kate Wilson
 
+# @author Kate Wilson
+
 import pygame, math, sys
 from pygame import *
+from math import *
+from pygame.locals import*
+pygame.init()
 
+black = (0, 0, 0)
+white = (255, 255, 255)
+blue = ((0, 0, 255))
+green = (0, 255, 0)
+red = (255, 0, 0)
+pink= (255,200, 200)
 
+displaySize = (900, 600)
+Winscreen = display.set_mode(displaySize)
 
 
 class WinCards:
 
   def __init__(self):
-    displaySize= (900, 600)
-    Winscreen = display.set_mode(displaySize)
-    Winscreen.fill(white)
-    
-    if int(InputBudget(self)) - sum[cartList.prices] >= 0
 
-      WinFont = pygame.font.SysFont("monospace", 50, True)
-      namee= WinFont.render("You've won! Great job staying focused and on budget", 1, green)
-      screen.blit(product_Name, (product_Name, 350, 300))
     
-    if int(InputBudget(self)) - sum[cartList.prices] < 0
-      WinFont = pygame.font.SysFont("monospace", 50, True)
-      product_Name= WinFont.render("You went over budget! Please select which items you would like to remove from your cart.", 1, black)
-      screen.blit(product_Name, (product_Name, self.Y +))
-      
-      
-
-      
-      
-class FailCards :      
-
-    def __init__(self):
+    if int(InputBudget(self)) - sum[cartList.prices] >= 0:
+        WinFont = pygame.font.SysFont("monospace", 25, True)
+        name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
+        Winscreen.blit(name, (60, 275))
     
-    displaySize= (900, 600)
-    screen = display.set_mode(displaySize)
-    screen.fill(red)
-    
-
     if int(InputBudget(self)) - sum[cartList.prices] < 0:
-      print("You went over budget! Please select which items you would like to remove from your cart.")
-      
-      WinFont = pygame.font.SysFont("monospace", 50, True)
-      product_Name= WinFont.render("You went over budget! Please select which items you would like to remove from your cart.", 1, black)
-      screen.blit(product_Name, (product_Name, self.Y +))
+        WinFont = pygame.font.SysFont("monospace", 25, True)
+        Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
+        Winscreen.blit(Debt1_Name, (30, 0))
+        Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
+        Winscreen.blit(Debt2_Name, (80, 30))
+       
 
 
-if int(InputBudget(self)) - sum[cartList.prices] >= 0:
-  
-  
-click
+clock = time.Clock()
+running = True
+
+while running: 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    Winscreen.fill(white)
+
+    WinCards()
+
+    pygame.display.update()
