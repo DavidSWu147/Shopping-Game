@@ -4,25 +4,30 @@ import pygame, math, sys
 from pygame import *
 
 
-while TRUE:
-  if int(InputBudget(self)) - sum[cartList.prices] >= 0:
 
 
 class WinCards:
 
   def __init__(self):
-    
     displaySize= (900, 600)
     Winscreen = display.set_mode(displaySize)
     Winscreen.fill(white)
     
-    if int(InputBudget(self)) - sum[cartList.prices] >= 0:
-      
-      
+    if int(InputBudget(self)) - sum[cartList.prices] >= 0
+
       WinFont = pygame.font.SysFont("monospace", 50, True)
       namee= WinFont.render("You've won! Great job staying focused and on budget", 1, green)
       screen.blit(product_Name, (product_Name, 350, 300))
+    
+    if int(InputBudget(self)) - sum[cartList.prices] < 0
+      WinFont = pygame.font.SysFont("monospace", 50, True)
+      product_Name= WinFont.render("You went over budget! Please select which items you would like to remove from your cart.", 1, black)
+      screen.blit(product_Name, (product_Name, self.Y +))
+      
+      
 
+      
+      
 class FailCards :      
 
     def __init__(self):
@@ -39,5 +44,8 @@ class FailCards :
       product_Name= WinFont.render("You went over budget! Please select which items you would like to remove from your cart.", 1, black)
       screen.blit(product_Name, (product_Name, self.Y +))
 
+
+if int(InputBudget(self)) - sum[cartList.prices] >= 0:
+  
   
 click
