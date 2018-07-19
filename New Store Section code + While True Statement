@@ -1,0 +1,52 @@
+#STORE SECTION CODE
+class StoreSection:
+    def __init__(self,name):
+        self.name=name
+        self.items = []
+    def draw(self):
+        for item in self.items:
+            item.draw()
+    def collision(self):
+        for item in self.items:
+            return item.collidepoint()
+            
+StoreSectionlist = []
+stoppointlist = []
+            
+# create store sections using class definitions
+foodSection = StoreSection("food")
+homedecorSection = StoreSection("homedecor")
+entertainmentSection = StoreSection("entertainment")
+
+#stoppoints
+foodStoppoint = stoppoint (375, 170, self.black, "food", self.screen)
+homedecorStoppoint = stoppoint (700, 300, self.black, "homedecor", self.screen)
+entertainmentStoppoint = stoppoint (375, 400, self.black, "entertainment", self.screen)
+
+StoreSectionlist.append(foodSection)
+StoreSectionlist.append(homedecorSection)
+StoreSectionlist.append(entertainmentSection)
+
+stoppointlist.append(foodStoppoint)
+stoppointlist.append(homedecorStoppoint)
+stoppointlist.append(entertainmentStoppoint)
+
+while True:
+   Events = pygame.event.get()
+   clickname = ""
+   clickstoresection = ""
+   for event in Events:
+        if event.type == QUIT:
+             break
+        if event.type == MOUSEBUTTONDOWN:
+             click = pygame.mouse.get_pos()
+             for stoppoint in stoppointlist:
+                   if stoppoint.collision(click):
+                        clickname = stoppoint.name
+                        break
+     if clickname != "":
+        for StoreSection in StoreSectionlist:
+            if StoreSection.name == clickname:
+                clickstoresection = StoreSection
+     if clickstoresection != "":
+        clickstoresection.draw()
