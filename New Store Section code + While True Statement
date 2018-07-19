@@ -1,3 +1,4 @@
+from Dashboard import Budget
 #STORE SECTION CODE
 class StoreSection:
     def __init__(self,name):
@@ -6,6 +7,7 @@ class StoreSection:
     def draw(self):
         for item in self.items:
             item.draw()
+    budget.draw(40, 25, screen, "Budget: ", budget, "freesands.ttf", 14)
     def collision(self):
         for item in self.items:
             return item.collidepoint()
