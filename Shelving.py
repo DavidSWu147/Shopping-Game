@@ -85,8 +85,15 @@ class Shelving(object):
     candle = Product(self.screen), "C:\\Users\\Bdavi\\Python Workspace\\.vscode\\Project\\Images\\candle.jpg", "$3.00", black, 420, 400)
     painting = Product(self.screen), "C:\\Users\\Bdavi\\Python Workspace\\.vscode\\Project\\Images\\painting.jpg", "$8.00", black, 660, 400)
     """
+    #Draw a back button
+    pygame.draw.rect(self.screen,self.black,[0,0,50,50],2)
+    pygame.draw.polygon(self.screen,self.black,[(40,10),(10,25),(40,40)],0)
   def handleEvent(self,event):
-    pass
+      if event.type == pygame.MOUSEBUTTONUP:
+            self.curPos = pygame.mouse.get_pos()
+            if 0 < self.curPos[0] and self.curPos[0] < 50 \
+                        and 0 < self.curPos[1] and self.curPos[1] < 50:
+                return 'OverallStoreMap'
 
   
 

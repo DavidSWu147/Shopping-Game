@@ -6,7 +6,7 @@ from InputBudget import InputBudget
 from InputShoppingList import InputShoppingList
 from OverallStoreMap import OverallStoreMap
 from Shelving import Shelving
-
+from WinCards import WinCards
 
 '''
 @author Evan Degroote
@@ -62,6 +62,7 @@ class MasterClass(object):
         self.inputShoppingList = InputShoppingList(self)
         self.overallStoreMap = OverallStoreMap(self)
         self.shelving = Shelving(self)
+        self.winCards = WinCards(self)
         
     def __str__(self):
         return 'Master Class'
@@ -82,6 +83,9 @@ class MasterClass(object):
                     if command == 'Query':
                         self.currentClass = None
                         self.currentScreen = None
+                    elif command == 'WinCards':
+                        self.currentClass = self.winCards
+                        self.currentScreen = self.winCards.screen
                     elif command == 'Shelving':
                         self.currentClass = self.shelving
                         self.currentScreen = self.shelving.screen
@@ -116,6 +120,9 @@ class MasterClass(object):
             self.masterScreen.blit(self.currentScreen,(0,0))
 
         pygame.display.update()
+
+    def getBudget(self):
+        return self.inputBudget.initialBudget
 
 obj = MasterClass()
 obj.run()
