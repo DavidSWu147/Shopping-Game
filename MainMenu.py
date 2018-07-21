@@ -20,12 +20,16 @@ class MainMenu(object):
         return self.panelName            
 
     def draw(self):
-        self.screen.fill(self.WHITE)    
+        self.screen.fill(self.WHITE)  
+
+        bgImage = pygame.image.load("C:\\Users\\Bdavi\\Python Workspace\\.vscode\\Project\\Images\\mainbackground.jpg")
+        self.screen.blit(bgImage,(0,0))  
 
         self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
-        self.text = self.fontMaster.render('Dollar Chopper',True,self.BLACK)
+        self.text = self.fontMaster.render('Dollar Chopper',True,self.WHITE)
         self.screen.blit(self.text,(250,100))
 
+        pygame.draw.rect(self.screen,self.WHITE,[300,300,300,100])
         pygame.draw.rect(self.screen,self.BLACK,[300,300,300,100],5)
         self.fontMaster = pygame.font.SysFont('Calibri',36)
         self.text = self.fontMaster.render('Click Here to Enter',True,self.BLACK)
