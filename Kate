@@ -1,0 +1,132 @@
+'''
+@author Annie Li
+'''
+import pygame, math, sys, time
+from pygame import *
+
+white = (255, 255, 255) 
+black = (0,0, 0)
+bisque = (225,228,196)
+screen = pygame.display.set_mode([900,600])
+pygame.init()
+
+
+class OverallStoreMap(object):
+
+    def __init__(self, mC):
+
+        self.masterClass = mC
+        # setting up the window
+        self.display_width = 900
+        self.display_height = 600
+
+        self.screenSize = (self.display_width, self.display_height)
+
+        self.white = (255,255,255)
+        self.black = (0,0,0)
+        self.blue = (0,0,255)
+        self.bisque = (255,228,196)
+
+        
+
+    def draw(self):
+        self.screen = pygame.Surface(self.screenSize)
+        #Annie's Code
+        #The origin of the display, where x = 0 and y = 0, is the top left of the self.screen. Both axes increase positively towards the bottom right of the self.screen.
+#budget = self.masterClass.getBudget()
+#budgetObj = Budget(40, 25, "Budget: ", budget, "freesandsbold.ttf", 14)
+#budget.draw()
+        #fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+        #textObj1 = fontObj.render('Budget:',True,self.black,self.bisque)
+        #textRectObj1 = textObj1.get_rect() food_area = pygame.draw.rect(screen, black, (140,0,760,150),15)
+    
+        #textRectObj1.center = (40,20)
+        
+#self.screen.fill(self.white) ERROR
+
+fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+textObj1 = fontObj.render('budget:',True,black,bisque)
+textRectObj1 = textObj1.get_rect()
+textRectObj1.center = (40,20)
+screen.fill(white)
+
+textObj2 = fontObj.render('remaining:',True,black,bisque)
+textRectObj2 = textObj2.get_rect()
+textRectObj2.center = (50,80)
+textObj3 = fontObj.render('shopping list:',True,black,bisque)
+textRectObj3 = textObj3.get_rect()
+textRectObj3.center = (60,140)
+
+textObj4 = fontObj.render('cart:',True,black,bisque)
+textRectObj4 = textObj4.get_rect()
+textRectObj4.center = (30,370)
+
+pygame.draw.line(screen,black,(140,0),(140,600),15) #draw line
+
+class product:
+    Pricecount= 0
+    def __init__(self, screen, image, price, Color, X, Y):
+        
+        self.image = pygame.image.load(image).convert()
+        self.Color= Color
+        self.X= X
+        self.Y= Y
+        self.price= price
+        
+        screen.blit(self.image, (self.X, self.Y))
+        
+    
+
+        myFont = pygame.font.SysFont("monospace", 20, True)
+        product_Name= myFont.render(self.price, 1, self.Color)
+        screen.blit(product_Name, (self.X + 50, self.Y + 180))
+        # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
+
+
+    
+
+
+wood = product(screen, "plywood.jpg", "$16.00", black, 180, 0)
+windows = product(screen, "window.jpg", "$40.00", black, 420, 0)
+wallpaper = product(screen, "wallpaper.jpg", "$12.00", black, 660, 0)
+paint = product(screen, "paint.jpg", "$5.00", black, 180, 200)
+chair = product(screen, "chair.jpg", "$28.00", black, 420, 200)
+photoframe = product(screen, "photoframe.jpg", "$20.00", black, 660, 200)
+lamp = product(screen, "lamp.jpg", "$32.00", black, 180, 400)
+candle = product(screen, "candle.jpg", "$3.00", black, 420, 400)
+painting = product(screen, "painting.jpg", "$8.00", black, 660, 400)
+
+rockinghorse = product(screen, "rockinghorse.jpg", "$14.00", black, 180, 0)
+chutesandladders = product(screen, "chutesandladders.jpg", "$6.00", black, 420, 0)
+playingcards = product(screen, "playingcards.jpg", "$1.00", black, 660, 0)
+soccerball = product(screen, "soccerball.jpg", "$5.00", black, 180, 200)
+myfirstfairytales = product(screen, "myfirstfairytales.jpg", "$10.00", black, 420, 200)
+skateboard = product(screen, "skateboard.jpg", "$9.00", black, 660, 200)
+frisbee = product(screen, "frisbee.jpg", "$3.00", black, 180, 400)
+pingpongset = product(screen, "pingpongset.jpg", "$4.00", black, 420, 400)
+dolls = product(screen, "doll.jpg", "$4.00", black, 660, 400)
+
+
+orangejuice = product(screen, "orangejuice.jpg", "$2.00", black, 180, 0)
+bread = product(screen, "bread.jpg", "$2.00", black, 420, 0)
+lemonade = product(screen, "lemonade.jpg", "$3.00", black, 660, 0)
+milk = product(screen, "milk.jpg", "$2.00", black, 180, 200)
+cereal = product(screen, "cereal.jpg", "$3.00", black, 420, 200)
+apples = product(screen, "apple.jpg", "$1.00", black, 660, 200)
+cake = product(screen, "cake.jpg", "$7.00", black, 180, 400)
+lettuce = product(screen, "lettuce.jpg", "$1.00", black, 420, 400)
+eggs = product(screen, "egg.jpg", "$2.00", black, 660, 400)
+pygame.display.update()
+
+while True:   #running = True  
+    for event in pygame.event.get():
+        if event.type == QUIT:     
+            pygame.quit()
+            sys.exit()
+    screen.blit(textObj1,textRectObj1)
+    screen.blit(textObj2,textRectObj2)
+    screen.blit(textObj3,textRectObj3)
+    screen.blit(textObj4,textRectObj4)
+      
+    pygame.display.update()
+
