@@ -5,6 +5,7 @@
 import pygame, math, sys
 from pygame import *
 
+
 class OverallStoreMap(object):
 
     def __init__(self, mC):
@@ -24,13 +25,13 @@ class OverallStoreMap(object):
 
         self.screen = pygame.Surface(self.screenSize)
         self.screen.fill(self.white)
-       
-help_button = pygame.draw.rect(self.screen, self.black, (30,550,30,30),15)
-help_button_text = pygame.font.Font("freesansbold.ttf", 20)
-help_button_text = help_button_text.render("Help Button", True, self.black, None)
-help_rect = help_button_text.get_rect()
-help_button_text_center = (535,45)
-self.screen.blit(help_button_text, help_button_text_center)
+   def draw(self):
+        help_button = pygame.draw.rect(self.screen, self.black, (30,550,30,30),15)
+        help_button_text = pygame.font.Font("freesansbold.ttf", 20)
+        help_button_text = help_button_text.render("Help Button", True, self.black, None)
+        help_rect = help_button_text.get_rect()
+        help_button_text_center = (535,45)
+        self.screen.blit(help_button_text, help_button_text_center)
 
 
 
