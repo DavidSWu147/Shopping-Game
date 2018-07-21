@@ -63,30 +63,30 @@ class InputBudget(object):
         elif event.type == pygame.KEYUP:
             self.curKey = event.key
 
-            if self.curKey == pygame.K_RETURN:
+            if self.curKey == pygame.K_RETURN or self.curKey == pygame.K_KP_ENTER:
                 return 'InputShoppingList'
-            elif self.curKey == pygame.K_BACKSPACE:
+            elif self.curKey == pygame.K_BACKSPACE or self.curKey == pygame.K_DELETE:
                 self.initialBudget = 0
-            elif self.initialBudget < 100:
-                if self.curKey == pygame.K_1:    
+            elif self.initialBudget < 100:  #can't go over $999.00
+                if self.curKey == pygame.K_1 or self.curKey == pygame.K_KP1:    
                     self.initialBudget = self.initialBudget * 10 + 1
-                elif self.curKey == pygame.K_2:
+                elif self.curKey == pygame.K_2 or self.curKey == pygame.K_KP2:
                     self.initialBudget = self.initialBudget * 10 + 2
-                elif self.curKey == pygame.K_3:
+                elif self.curKey == pygame.K_3 or self.curKey == pygame.K_KP3:
                     self.initialBudget = self.initialBudget * 10 + 3
-                elif self.curKey == pygame.K_4:
+                elif self.curKey == pygame.K_4 or self.curKey == pygame.K_KP4:
                     self.initialBudget = self.initialBudget * 10 + 4
-                elif self.curKey == pygame.K_5:
+                elif self.curKey == pygame.K_5 or self.curKey == pygame.K_KP5:
                     self.initialBudget = self.initialBudget * 10 + 5
-                elif self.curKey == pygame.K_6:
+                elif self.curKey == pygame.K_6 or self.curKey == pygame.K_KP6:
                     self.initialBudget = self.initialBudget * 10 + 6
-                elif self.curKey == pygame.K_7:
+                elif self.curKey == pygame.K_7 or self.curKey == pygame.K_KP7:
                     self.initialBudget = self.initialBudget * 10 + 7
-                elif self.curKey == pygame.K_8:
+                elif self.curKey == pygame.K_8 or self.curKey == pygame.K_KP8:
                     self.initialBudget = self.initialBudget * 10 + 8
-                elif self.curKey == pygame.K_9:
+                elif self.curKey == pygame.K_9 or self.curKey == pygame.K_KP9:
                     self.initialBudget = self.initialBudget * 10 + 9
-                elif self.curKey == pygame.K_0:
+                elif self.curKey == pygame.K_0 or self.curKey == pygame.K_KP0:
                     self.initialBudget = self.initialBudget * 10 
 
         self.draw()
