@@ -1,0 +1,37 @@
+'''
+@author Kate Wilson
+'''
+
+import pygame, math, sys
+from pygame import *
+
+class OverallStoreMap(object):
+
+    def __init__(self, mC):
+        pygame.init()
+
+        self.masterClass = mC
+        # setting up the window
+        self.display_width = 900
+        self.display_height = 600
+
+        self.screenSize = (self.display_width, self.display_height)
+
+        self.white = (255,255,255)
+        self.black = (0,0,0)
+        self.blue = (0,0,255)
+        self.bisque = (255,228,196)
+
+        self.screen = pygame.Surface(self.screenSize)
+        self.screen.fill(self.white)
+       
+help_button = pygame.draw.rect(self.screen, self.black, (30,550,30,30),15)
+help_button_text = pygame.font.Font("freesansbold.ttf", 20)
+help_button_text = help_button_text.render("Help Button", True, self.black, None)
+help_rect = help_button_text.get_rect()
+help_button_text_center = (535,45)
+self.screen.blit(help_button_text, help_button_text_center)
+
+
+
+"Instructions: Click on an item to add it to your cart. Use the on-screen back arrow to display the store map again"
