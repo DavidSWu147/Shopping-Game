@@ -15,7 +15,7 @@ green = (0, 255, 0)
 red = (255, 0, 0)
 pink= (255,200, 200)
 
-displaySize = (900, 650)
+displaySize = (900, 600)
 Winscreen = display.set_mode(displaySize)
 
 Positions= []
