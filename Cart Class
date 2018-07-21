@@ -1,15 +1,14 @@
-# @author Kate Wilson
+click = pygame.mouse.get_pos()
+class Cart(object):
+    def __init__(self):
+        pygame.init()
 
-import pygame, math, sys
-from pygame import *
-
-items = []
-class Cart(self)
-  def __init__(self,num,items)
-    self.num = num
-    self.items = items
-    items.append(Cart)
-    print (Cart)
+    def collision(self, click):
+        return self.rect.collidepoint(click)
     
-for item in items:
-  if item
+    def AddToCart(self, item):
+        self.text = "Cart : \n"
+        self.text = self.text + self.product+ "\n"
+        if item.collision(click):
+            Cart.AddToCart(self.text)
+
