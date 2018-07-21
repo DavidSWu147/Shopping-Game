@@ -15,7 +15,7 @@ green = (0, 255, 0)
 red = (255, 0, 0)
 pink= (255,200, 200)
 
-displaySize = (900, 600)
+displaySize = (900, 650)
 Winscreen = display.set_mode(displaySize)
 
 Positions= []
@@ -39,41 +39,66 @@ Positions.append(pos8)
 pos9 = (400, 450)
 Positions.append(pos9)
 
-class WinCards:
+# class WinCards:
 
-  def __init__(self):
+#   def __init__(self):
 
     
-    if 0-500 >= 0:
+#     if 0-500 >= 0:
 
-        WinFont = pygame.font.SysFont("monospace", 20, True)
-        name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
-        Winscreen.blit(name, (60, 275))
+#         WinFont = pygame.font.SysFont("monospace", 20, True)
+#         name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
+#         Winscreen.blit(name, (60, 275))
     
-    if 0-500 < 0:
-        WinFont = pygame.font.SysFont("monospace", 20, True)
-        Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
-        Winscreen.blit(Debt1_Name, (30, 0))
-        Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
-        Winscreen.blit(Debt2_Name, (80, 25))
-       
-        test_product_list= []
-        product1= Product(Winscreen, "orangejuice.jpg", "$2.00", black, pos1)
+    if 0-500 < 0: 
+         WinFont = pygame.font.SysFont("monospace", 20, True)
+         Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
+         Winscreen.blit(Debt1_Name, (30, 0))
+         Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
+         Winscreen.blit(Debt2_Name, (80, 25))
 
         
-        
-        
-
+         test_product_list= []
+         product1= product(screen, "orangejuice.jpg", "$2.00", black, 180, 0)
+         test_product_list.append(product1)
 
 clock = time.Clock()
 running = True
+
+if 0-500 >= 0:
+
+WinFont = pygame.font.SysFont("monospace", 20, True)
+name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
+Winscreen.blit(name, (60, 275))
+
+if 0-500 < 0:
+WinFont = pygame.font.SysFont("monospace", 20, True)
+Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
+Winscreen.blit(Debt1_Name, (30, 0))
+Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
+Winscreen.blit(Debt2_Name, (80, 25))
+
+    
+test_product_list= []
+product1= product(Winscreen, "orangejuice.jpg", "$2.00", black, 180, 0)
+test_product_list.append(product1)
 
 while running: 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type== pygame.MOUSEBUTTONDOWN:
+            click= pygame.mouse.get_pos()
+            for item in test_product_list:
+                if item.Detectcollisions(click):
+                    test_product_list.remove(item)
     Winscreen.fill(white)
 
-    WinCards()
+    Winscreen.blit(name, (60, 275))
+    Winscreen.blit(Debt1_Name, (30, 0))
+    Winscreen.blit(Debt2_Name, (80, 25))
+    for i in range(len(test_product_list)):
+        test_product_list[i].draw(Positions[i], Winscreen)
+    # WinCards()
 
     pygame.display.update()
