@@ -1,11 +1,11 @@
 # @author Kate Wilson
 
-# @author Kate Wilson
-
 import pygame, math, sys
 from pygame import *
 from math import *
 from pygame.locals import*
+from StoreItem import product
+
 pygame.init()
 
 black = (0, 0, 0)
@@ -15,27 +15,54 @@ green = (0, 255, 0)
 red = (255, 0, 0)
 pink= (255,200, 200)
 
-displaySize = (900, 600)
+displaySize = (900, 650)
 Winscreen = display.set_mode(displaySize)
 
+Positions= []
+
+pos1 = (0, 50)
+Positions.append(pos1)
+pos2 = (200, 50)
+Positions.append(pos2)
+pos3 = (400, 50)
+Positions.append(pos3)
+pos4 = (0, 250)
+Positions.append(pos4)
+pos5 = (200, 250)
+Positions.append(pos5)
+pos6 = (400, 250)
+Positions.append(pos6)
+pos7 = (0, 450)
+Positions.append(pos7)
+pos8 = (200, 450)
+Positions.append(pos8)
+pos9 = (400, 450)
+Positions.append(pos9)
 
 class WinCards:
 
   def __init__(self):
 
     
-    if int(InputBudget(self)) - sum[cartList.prices] >= 0:
-        WinFont = pygame.font.SysFont("monospace", 25, True)
+    if 0-500 >= 0:
+
+        WinFont = pygame.font.SysFont("monospace", 20, True)
         name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
         Winscreen.blit(name, (60, 275))
     
-    if int(InputBudget(self)) - sum[cartList.prices] < 0:
-        WinFont = pygame.font.SysFont("monospace", 25, True)
+    if 0-500 < 0:
+        WinFont = pygame.font.SysFont("monospace", 20, True)
         Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
         Winscreen.blit(Debt1_Name, (30, 0))
         Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
-        Winscreen.blit(Debt2_Name, (80, 30))
+        Winscreen.blit(Debt2_Name, (80, 25))
        
+        test_product_list= []
+        product1= Product(Winscreen, "orangejuice.jpg", "$2.00", black, pos1)
+
+        
+        
+        
 
 
 clock = time.Clock()
