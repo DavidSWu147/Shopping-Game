@@ -34,4 +34,4 @@ self.screen.blit(help_button_text, help_button_text_center)
 
 
 
-"Instructions: Click on an item to add it to your cart. Use the on-screen back arrow to display the store map again"
+# "Instructions: Click on an item to add it to your cart. Use the on-screen back arrow to display the store map again"
