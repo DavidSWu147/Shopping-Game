@@ -25,7 +25,7 @@ class OverallStoreMap(object):
 
         self.screen = pygame.Surface(self.screenSize)
         self.screen.fill(self.white)
-   def draw(self):
+    def draw(self):
         help_button = pygame.draw.rect(self.screen, self.black, (30,550,30,30),15)
         help_button_text = pygame.font.Font("freesansbold.ttf", 20)
         help_button_text = help_button_text.render("Help Button", True, self.black, None)
