@@ -37,6 +37,11 @@ class StoreFront(object):
         #Draw a back button
         pygame.draw.rect(self.screen,self.BLACK,[0,0,50,50],2)
         pygame.draw.polygon(self.screen,self.BLACK,[(40,10),(10,25),(40,40)],0)
+        #Draw a help button
+        pygame.draw.rect(self.screen,self.BLACK,[50,0,50,50],2)
+        self.fontMaster = pygame.font.SysFont('Calibri',48,True,False)
+        self.text = self.fontMaster.render('?',True,self.BLACK)
+        self.screen.blit(self.text,(64,6))
 
     def handleEvent(self,event):
         if event.type == pygame.MOUSEBUTTONUP:
@@ -47,3 +52,7 @@ class StoreFront(object):
             elif 0 < self.curPos[0] and self.curPos[0] < 50 \
                         and 0 < self.curPos[1] and self.curPos[1] < 50:
                 return 'MainMenu'
+            elif 50 < self.curPos[0] and self.curPos[0] < 100 \
+                        and 0 < self.curPos[1] and self.curPos[1] < 50:
+                self.masterClass.help.setPreviousScreen(self.panelName)
+                return 'Help'
