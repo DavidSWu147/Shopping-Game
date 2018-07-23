@@ -11,4 +11,8 @@ class Cart(object):
         self.text = self.text + self.product+ "\n"
         if item.collision(click):
             Cart.AddToCart(self.text)
+    
+    def AddtoCartList(self, item):
+        if item.collision(click):
+            Cartlist.append(item)
 
