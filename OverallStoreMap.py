@@ -4,6 +4,23 @@ from pygame import *
 import time
 import MasterClass
 
+class Budget(object):
+    white = (255, 255, 255)
+    def __init__(self, x, y, screen, text, budget, texttype, textsize):
+        self.black = (0, 0, 0) 
+        self.x= x
+        self.y = y
+        self.screen = screen
+        self.budget = budget
+        self.text = text
+        self.font = pygame.font.Font(texttype, textsize)
+        self.renderabletext = self.font.render(text, True, self.
+        black)
+
+    def draw(self):
+        self.screen.blit(self.renderabletext, (self.x, self.y))
+        budgetObj.draw()
+
 class stoppoint:
 
     def __init__(self, X, Y, color, screen):
@@ -67,7 +84,10 @@ class OverallStoreMap(object):
 
         #Annie's Code
         #The origin of the display, where x = 0 and y = 0, is the top left of the self.screen. Both axes increase positively towards the bottom right of the self.screen.
-        #fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+        fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+        budget = self.masterClass.getBudget()
+        budgetObj = Budget(40,25, self.screen, "Budget: ",budget, "freesansbold.ttf", 14)
+
         #textObj1 = fontObj.render('Budget:',True,self.black,self.bisque)
         #textRectObj1 = textObj1.get_rect()
         #textRectObj1.center = (40,20)
@@ -101,7 +121,7 @@ class OverallStoreMap(object):
                 #self.screen.blit(shelving)
                 return 'Query'
             if  self.homedecorStoppoint.X < self.curPos[0] and self.curPos[0] < self.homedecorStoppoint.X + 30 \
-            and self.homedecorStoppoint.Y < self.curPoss[1] and self.curPos[1] < self.homedecorStoppoint.Y + 27:
+            and self.homedecorStoppoint.Y < self.curPos[1] and self.curPos[1] < self.homedecorStoppoint.Y + 27:
                 #self.screen.fill(white)
                 #self.screen.blit(shelving)
                 return 'Query'
@@ -111,23 +131,6 @@ class OverallStoreMap(object):
                 #self.screen.blit(shelving) 
                 return 'Query'
 
-class Budget(object):
-    self.masterClass = MasterClass(self)
-    white = (255, 255, 255) 
-    def __init__(self, x, y, screen, text, budget, texttype, textsize):
-        self.x= x
-        self.y = y
-        self.screen = screen
-        self.budget = budget
-        self.text = text
-        self.font = pygame.font.Font(texttype, textsize)
-        self.renderabletext = self.font.render(text, True,black)
-
-    def draw(self):
-        self.screen.blit(self.renderabletext, (self.x,self.y)
-        budget = self.masterClass.getBudget()
-        budgetObj = Budget(40,25,"Budget: ", budget, "freesandsbold.ttf", 14)
-        budget.draw()
             
 # the code below is for loading the shelves for each section with items
 #foodSection.items = [bread, milk, lemonade, cereal, orangejuice, fruit, cake, eggs, vegetables]
