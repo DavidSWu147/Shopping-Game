@@ -1,0 +1,17 @@
+class Remaining(object):
+    def __init__(self):
+        pygame.init()
+
+    def initializeClasses(self):
+        self.storeItem = StoreItem(self)
+    def remaining(self, text):
+        self.text = 'Remaining: \n'
+        if self.masterClass.inputDepartment.departmentChoice == 'Food':
+            self.remaining = self.masterClass.inputBudget.initialBudget - self.storeItem.product.price
+        if self.masterClass.inputDepartment.departmentChoice == 'Home':
+            self.remaining = self.masterClass.inputBudget.initialBudget - self.storeItem.product.price
+        if self.masterClass.inputDepartment.departmentChoice == 'Entertainment':
+            self.remaining = self.masterClass.inputBudget.initialBudget - self.storeItem.product.price
+
+    def draw(self):
+        self.screen.blit(self.text, self.remaining)
