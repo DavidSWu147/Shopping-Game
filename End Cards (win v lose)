@@ -43,41 +43,26 @@ Positions.append(pos9)
 
 #   def __init__(self):
 
-    
-#     if Remaining >= 0:
-
-#         WinFont = pygame.font.SysFont("monospace", 20, True)
-#         name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
-#         Winscreen.blit(name, (60, 275))
-    
-    if Remaining < 0: 
-         WinFont = pygame.font.SysFont("monospace", 20, True)
-         Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
-         Winscreen.blit(Debt1_Name, (30, 0))
-         Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
-         Winscreen.blit(Debt2_Name, (80, 25))
-
-        
-         test_product_list= []
-         product1= product(screen, "orangejuice.jpg", "$2.00", black, 180, 0)
-         test_product_list.append(product1)
 
 clock = time.Clock()
 running = True
 
 if Remaining >= 0:
-
-WinFont = pygame.font.SysFont("monospace", 20, True)
-name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
-Winscreen.blit(name, (60, 275))
+    WinFont = pygame.font.SysFont("monospace", 20, True)
+    name= WinFont.render("You've won! Great job staying focused and on budget!", 1, green)
+    Winscreen.blit(name, (60, 275))
 
 if Remaining < 0:
-WinFont = pygame.font.SysFont("monospace", 20, True)
-Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
-Winscreen.blit(Debt1_Name, (30, 0))
-Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
-Winscreen.blit(Debt2_Name, (80, 25))
+    WinFont = pygame.font.SysFont("monospace", 20, True)
+    Debt1_Name= WinFont.render("You went over budget! Please select which items", 1, black)
+    Winscreen.blit(Debt1_Name, (30, 0))
+    Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
+    Winscreen.blit(Debt2_Name, (80, 25))
 
+    
+#test_product_list= []
+#product1= product(Winscreen, "C:\\Users\\user\\Documents\\Python Workspace\\.vscode\\orangejuice.jpg", "$2.00", black, 180, 0)
+#test_product_list.append(product1)
     
 Cartlist= []
 
