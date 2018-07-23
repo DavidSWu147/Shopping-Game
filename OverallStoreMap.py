@@ -3,6 +3,7 @@ import pygame, math, sys
 from pygame import *
 import time
 import MasterClass
+from Dashboard import Budget
 
 
 class stoppoint:
@@ -12,29 +13,13 @@ class stoppoint:
         self.Y= Y
         self.color= color
         self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
-class Budget(object):
-    white = (255, 255, 255)
-    def __init__(self, x, y, screen, text, budget, texttype, textsize):
-        self.black = (0, 0, 0) 
-        self.x= x
-        self.y = y
-        self.screen = screen
-        self.budget = budget
-        self.text = text
-        self.font = pygame.font.Font(texttype, textsize)
-        self.renderabletext = self.font.render(text, True, self.
-        black)
-
-    def draw(self):
-        self.screen.blit(self.renderabletext, (self.x, self.y))
-        budgetObj.draw()
 
 class OverallStoreMap(object):
 
     def __init__(self, mC):
         pygame.init()
 
-        self.masterClass = mC
+        self.mC = mC
         # setting up the window
         self.display_width = 900
         self.display_height = 600
@@ -47,6 +32,9 @@ class OverallStoreMap(object):
         self.bisque = (255,228,196)
 
         self.screen = pygame.Surface(self.screenSize)
+
+    def initializeClasses(self):
+        self.dashboard = Dashboard(self)
 
     def draw(self):
         #Overall Store Map, created by Kate Wilson
@@ -86,7 +74,7 @@ class OverallStoreMap(object):
         #The origin of the display, where x = 0 and y = 0, is the top left of the self.screen. Both axes increase positively towards the bottom right of the self.screen.
         fontObj = pygame.font.Font('freesansbold.ttf', 14) 
         budget = self.masterClass.getBudget()
-        budgetObj = Budget(40,25, self.screen, "Budget: ",budget, "freesansbold.ttf", 14)
+        budgetObj = Budget(40, 25, self.screen, "Budget: ",budget, "freesansbold.ttf", 14)
 
         #textObj1 = fontObj.render('Budget:',True,self.black,self.bisque)
         #textRectObj1 = textObj1.get_rect()
@@ -94,10 +82,9 @@ class OverallStoreMap(object):
         
         #self.screen.fill(self.white) ERROR
 
-        textObj2 = fontObj.render('Remaining:',True,self.black,self.bisque)
-        textRectObj2 = textObj2.get_rect()
-        textRectObj2.center = (50,80)
-        self.screen.blit(textObj2,textRectObj2)
+        remaining = self.dashboard.remaining
+        remainingObj = Remaining(50, 80, self.screen, "Remaining: ", remaining, "freesansbold.ttf", 14)
+
 
         textObj3 = fontObj.render('Shopping List:',True,self.black,self.bisque)
         textRectObj3 = textObj3.get_rect()
