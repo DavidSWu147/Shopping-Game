@@ -16,6 +16,8 @@ class MainMenu(object):
         self.WHITE = (255,255,255)
         self.fontMaster = None
 
+        self.clock = pygame.time.Clock()
+
     def __str__(self):
         return self.panelName            
 
@@ -23,7 +25,7 @@ class MainMenu(object):
         self.screen.fill(self.WHITE)  
 
         bgImage = pygame.image.load("C:\\Users\\Bdavi\\Python Workspace\\.vscode\\Project\\Images\\mainbackground.jpg")
-        self.screen.blit(bgImage,(0,0))  
+        self.screen.blit(bgImage,(-self.xtime(pygame.time.get_ticks()),-self.ytime(pygame.time.get_ticks()))) 
 
         self.fontMaster = pygame.font.SysFont('Calibri',64,True,False)
         self.text = self.fontMaster.render('Dollar Chopper',True,self.WHITE)
@@ -42,7 +44,29 @@ class MainMenu(object):
                         and 300 < self.curPos[1] and self.curPos[1] < 400:
                 return 'StoreFront'
 
+    def xtime(self,time):
+        bicentitime = time // 50
+        bicentitime = bicentitime % 1000
+        if bicentitime < 380:
+            return bicentitime
+        elif 380 <= bicentitime and bicentitime < 500:
+            return 380
+        elif 500 <= bicentitime and bicentitime < 880:
+            return 880 - bicentitime
+        elif 880 <= bicentitime:
+            return 0
 
+    def ytime(self,time):
+        bicentitime = time // 50
+        bicentitime = bicentitime % 1000
+        if bicentitime < 380:
+            return 0
+        elif 380 <= bicentitime and bicentitime < 500:
+            return bicentitime - 380
+        elif 500 <= bicentitime and bicentitime < 880:
+            return 120
+        elif 880 <= bicentitime:
+            return 1000 - bicentitime
     
 
            
