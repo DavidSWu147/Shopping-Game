@@ -4,6 +4,14 @@ from pygame import *
 import time
 import MasterClass
 
+
+class stoppoint:
+
+    def __init__(self, X, Y, color, screen):
+        self.X= X
+        self.Y= Y
+        self.color= color
+        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
 class Budget(object):
     white = (255, 255, 255)
     def __init__(self, x, y, screen, text, budget, texttype, textsize):
@@ -20,14 +28,6 @@ class Budget(object):
     def draw(self):
         self.screen.blit(self.renderabletext, (self.x, self.y))
         budgetObj.draw()
-
-class stoppoint:
-
-    def __init__(self, X, Y, color, screen):
-        self.X= X
-        self.Y= Y
-        self.color= color
-        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
 
 class OverallStoreMap(object):
 
