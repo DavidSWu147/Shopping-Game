@@ -1,4 +1,3 @@
-
 import pygame
 import math
 from pygame import *
@@ -17,14 +16,14 @@ pink= (255,200, 200)
 
 class product:
     Pricecount= 0
-    def __init__(self, screen, image, price, Color, X, Y):
+    def __init__(self, screen, name, image, price, Color, X, Y):
         
         self.image = pygame.image.load(image).convert()
-        self.rect = self.image.get_rect()
         self.Color= Color
         self.X= X
         self.Y= Y
         self.price= price
+        self.name = name
         
         screen.blit(self.image, (self.X, self.Y))
         
@@ -34,11 +33,6 @@ class product:
         product_Name= myFont.render(self.price, 1, self.Color)
         screen.blit(product_Name, (self.X + 50, self.Y + 180))
         # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
-    def draw(self,pos, screen):
-        screen.blit(self.image, (pos[0], pos[1]))
-
-    def Detectcollisions(self, click):
-        return self.rect.collidepoint(click)
 
 class stoppoint:
 
@@ -67,42 +61,42 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     screen.fill(white)
-
     
     
     
 
-    
+    def initializeClasses(self):
+        self.Product = product(self)
 
-    orangejuice = product(screen, "orangejuice.jpg", "$2.00", black, 180, 0)
-    bread = product(screen, "bread.jpg", "$2.00", black, 420, 0)
-    lemonade = product(screen, "lemonade.jpg", "$3.00", black, 660, 0)
-    milk = product(screen, "milk.jpg", "$2.00", black, 180, 200)
-    cereal = product(screen, "cereal.jpg", "$3.00", black, 420, 200)
-    apples = product(screen, "apple.jpg", "$1.00", black, 660, 200)
-    cake = product(screen, "cake.jpg", "$7.00", black, 180, 400)
-    lettuce = product(screen, "lettuce.jpg", "$1.00", black, 420, 400)
-    eggs = product(screen, "egg.jpg", "$2.00", black, 660, 400)
+    self.Product.orangejuice = product(screen, "orange juice", "orangejuice.jpg", "$2.00", black, 180, 0)
+    self.Product.bread = product(screen, "bread", "bread.jpg", "$2.00", black, 420, 0)
+    self.Product.lemonade = product(screen, "lemonade", "lemonade.jpg", "$3.00", black, 660, 0)
+    self.Product.milk = product(screen, "milk", "milk.jpg", "$2.00", black, 180, 200)
+    self.Product.cereal = product(screen, "cereal", "cereal.jpg", "$3.00", black, 420, 200)
+    self.Product.apples = product(screen, "apple", "apple.jpg", "$1.00", black, 660, 200)
+    self.Product.cake = product(screen, "cake", "cake.jpg", "$7.00", black, 180, 400)
+    self.Product.lettuce = product(screen, "lettuce", "lettuce.jpg", "$1.00", black, 420, 400)
+    self.Product.eggs = product(screen, "egg", "egg.jpg", "$2.00", black, 660, 400)
     
-    rockinghorse = product(screen, "rockinghorse.jpg", "$14.00", black, 180, 0)
-    chutesandladders = product(screen, "chutesandladders.jpg", "$6.00", black, 420, 0)
-    playingcards = product(screen, "playingcards.jpg", "$1.00", black, 660, 0)
-    soccerball = product(screen, "soccerball.jpg", "$5.00", black, 180, 200)
-    myfirstfairytales = product(screen, "myfirstfairytales.jpg", "$10.00", black, 420, 200)
-    skateboard = product(screen, "skateboard.jpg", "$9.00", black, 660, 200)
-    frisbee = product(screen, "frisbee.jpg", "$3.00", black, 180, 400)
-    pingpongset = product(screen, "pingpongset.jpg", "$4.00", black, 420, 400)
-    dolls = product(screen, "doll.jpg", "$4.00", black, 660, 400)
+    self.Product.rockinghorse = product(screen, "rocking horse", "rockinghorse.jpg", "$14.00", black, 180, 0)
+    self.Product.chutesandladders = product(screen, "chutesandladders", "chutesandladders.jpg", "$6.00", black, 420, 0)
+    self.Product.playingcards = product(screen, "playing cards", "playingcards.jpg", "$1.00", black, 660, 0)
+    self.Product.soccerball = product(screen, "soccerball", "soccerball.jpg", "$5.00", black, 180, 200)
+    self.Product.myfirstfairytales = product(screen, "my first fairytales", "myfirstfairytales.jpg", "$10.00", black, 420, 200)
+    self.Product.skateboard = product(screen, "skateboard", "skateboard.jpg", "$9.00", black, 660, 200)
+    self.Product.frisbee = product(screen, "frisbee", "frisbee.jpg", "$3.00", black, 180, 400)
+    self.Product.pingpongset = product(screen, "pinpong set", "pingpongset.jpg", "$4.00", black, 420, 400)
+    self.Product.dolls = product(screen, "doll", "doll.jpg", "$4.00", black, 660, 400)
 
-    wood = product(screen, "plywood.jpg", "$16.00", black, 180, 0)
-    windows = product(screen, "window.jpg", "$40.00", black, 420, 0)
-    wallpaper = product(screen, "wallpaper.jpg", "$12.00", black, 660, 0)
-    paint = product(screen, "paint.jpg", "$5.00", black, 180, 200)
-    chair = product(screen, "chair.jpg", "$28.00", black, 420, 200)
-    photoframe = product(screen, "photoframe.jpg", "$20.00", black, 660, 200)
-    lamp = product(screen, "lamp.jpg", "$32.00", black, 180, 400)
-    candle = product(screen, "candle.jpg", "$3.00", black, 420, 400)
-    painting = product(screen, "painting.jpg", "$8.00", black, 660, 400)
+    self.Product.wood = product(screen, "wood", "plywood.jpg", "$16.00", black, 180, 0)
+    self.Product.windows = product(screen, "winow", "window.jpg", "$40.00", black, 420, 0)
+    self.Product.wallpaper = product(screen, "wallpapter", "wallpaper.jpg", "$12.00", black, 660, 0)
+    self.Product.paint = product(screen, "paint", "paint.jpg", "$5.00", black, 180, 200)
+    self.Product.chair = product(screen, "chair", "chair.jpg", "$28.00", black, 420, 200)
+    self.Product.photoframe = product(screen, "photoframe", "photoframe.jpg", "$20.00", black, 660, 200)
+    self.Product.lamp = product(screen, "lamp", "lamp.jpg", "$32.00", black, 180, 400)
+    self.Product.candle = product(screen, "candle", "candle.jpg", "$3.00", black, 420, 400)
+    self.Product.painting = product(screen, "painting", "painting.jpg", "$8.00", black, 660, 400)
 
 
 
