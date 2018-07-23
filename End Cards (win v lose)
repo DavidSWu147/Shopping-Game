@@ -79,9 +79,9 @@ Debt2_Name= WinFont.render("you would like to remove from your cart.", 1, black)
 Winscreen.blit(Debt2_Name, (80, 25))
 
     
-test_product_list= []
-product1= product(Winscreen, "orangejuice.jpg", "$2.00", black, 180, 0)
-test_product_list.append(product1)
+Cartlist= []
+if item.collision(click):
+    Cartlist.append(item)
 
 while running: 
     for event in pygame.event.get():
@@ -89,16 +89,16 @@ while running:
             running = False
         if event.type== pygame.MOUSEBUTTONDOWN:
             click= pygame.mouse.get_pos()
-            for item in test_product_list:
+            for item in Cartlist:
                 if item.Detectcollisions(click):
-                    test_product_list.remove(item)
+                    Cartlist.remove(item)
     Winscreen.fill(white)
 
     Winscreen.blit(name, (60, 275))
     Winscreen.blit(Debt1_Name, (30, 0))
     Winscreen.blit(Debt2_Name, (80, 25))
     for i in range(len(test_product_list)):
-        test_product_list[i].draw(Positions[i], Winscreen)
+        Cartlist[i].draw(Positions[i], Winscreen)
     # WinCards()
 
     pygame.display.update()
