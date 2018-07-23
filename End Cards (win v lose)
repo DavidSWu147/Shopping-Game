@@ -80,8 +80,7 @@ Winscreen.blit(Debt2_Name, (80, 25))
 
     
 Cartlist= []
-if item.collision(click):
-    Cartlist.append(item)
+
 
 while running: 
     for event in pygame.event.get():
