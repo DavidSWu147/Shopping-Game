@@ -19,6 +19,7 @@ class product:
     def __init__(self, screen, name, image, price, Color, X, Y):
         
         self.image = pygame.image.load(image).convert()
+        self.rect = self.image.get_rect()
         self.Color= Color
         self.X= X
         self.Y= Y
@@ -27,12 +28,13 @@ class product:
         
         screen.blit(self.image, (self.X, self.Y))
         
-    
-
+   
         myFont = pygame.font.SysFont("monospace", 20, True)
         product_Name= myFont.render(self.price, 1, self.Color)
         screen.blit(product_Name, (self.X + 50, self.Y + 180))
         # self.box= pygame.draw.polygon(self, Color, [(X,Y), (X + dX, Y), (X + dX, Y + dY), (X, Y + dY)])
+    def collision(self, click):
+        return self.rect.collidepoint(click)
 
 class stoppoint:
 
