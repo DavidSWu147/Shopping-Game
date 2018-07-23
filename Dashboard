@@ -23,16 +23,16 @@ class Cart(object):
         if item.collision(click):
             Cart.AddToCart(self.text)
 
-class Budget(object):
-    white = (255, 255, 255) 
+class Budget:
+    
     def __init__(self, x, y, screen, text, budget, texttype, textsize):
         self.x= x
         self.y = y
         self.screen = screen
         self.budget = budget
-        self.text = text + str(budget)
+        self.text = text + '$' + str(budget)
         self.font = pygame.font.Font(texttype, textsize)
-        self.renderabletext = self.font.render(text, True,black)
+        self.renderabletext = self.font.render(self.text, True, (0,0,0))
 
     def draw(self):
         self.screen.blit(self.renderabletext, (self.x,self.y))
