@@ -1,0 +1,196 @@
+import pygame, math, sys
+from pygame import *
+import time
+
+pygame.init()
+
+
+#STORE SECTION CODE
+class StoreSection:
+    def __init__(self,name):
+        self.name=name
+        self.items = []
+    def draw(self):
+        print("In Store Section draw")
+        for item in self.items:
+            item.draw()
+    def collision(self):
+        for item in self.items:
+            return item.collidepoint()
+            
+class stoppoint:
+
+    def __init__(self, X, Y, color, name, screen):
+        self.X= X
+        self.Y= Y
+        self.color= color
+        self.name = name
+        self.body= pygame.draw.polygon(screen, (0,0,0), [(self.X,self.Y), (self.X + 30, self.Y), (self.X + 15, self.Y + 27)])
+    def collision(self, click):
+        return self.body.collidepoint(click)
+
+class Budget:
+    
+    def __init__(self, x, y, screen, text, budget, texttype, textsize):
+        self.x= x
+        self.y = y
+        self.screen = screen
+        self.budget = budget
+        self.text = text + '$' + str(budget)
+        self.font = pygame.font.Font(texttype, textsize)
+        self.renderabletext = self.font.render(self.text, True, (0,0,0))
+
+    def draw(self):
+        self.screen.blit(self.renderabletext, (self.x,self.y))
+            
+
+class OverallStoreMap(object):
+
+    def __init__(self, mC):
+        pygame.init()
+
+        self.mC = mC
+        # setting up the window
+        self.display_width = 900
+        self.display_height = 600
+
+        self.displayStoreSection = False
+
+        self.screenSize = (self.display_width, self.display_height)
+
+        self.white = (255,255,255)
+        self.black = (0,0,0)
+        self.blue = (0,0,255)
+        self.bisque = (255,228,196)
+
+
+        self.screen = pygame.display.set_mode(self.screenSize)
+        pygame.display.set_caption("Welcome to the Store! Click on an area to begin.")
+
+        # self.screen = pygame.Surface(self.screenSize)
+
+        self.StoreSectionlist = []
+        self.stoppointlist = []
+
+        # create store sections using class definitions
+        foodSection = StoreSection("food")
+        homedecorSection = StoreSection("homedecor")
+        entertainmentSection = StoreSection("entertainment")
+
+        #stoppoints
+        foodStoppoint = stoppoint (375, 170, self.black, "food", self.screen)
+        homedecorStoppoint = stoppoint (700, 300, self.black, "homedecor", self.screen)
+        entertainmentStoppoint = stoppoint (375, 400, self.black, "entertainment", self.screen)
+
+        self.StoreSectionlist.append(foodSection)
+        self.StoreSectionlist.append(homedecorSection)
+        self.StoreSectionlist.append(entertainmentSection)
+
+        self.stoppointlist.append(foodStoppoint)
+        self.stoppointlist.append(homedecorStoppoint)
+        self.stoppointlist.append(entertainmentStoppoint)
+
+    def draw(self):
+        #Overall Store Map, created by Kate Wilson
+        self.screen.fill(self.white)
+
+        if not self.displayStoreSection:
+
+            food_area = pygame.draw.rect(self.screen, self.black, (140,0,760,150),15)
+            home_decor_area = pygame.draw.rect(self.screen, self.black, (750,150,150,750), 15)
+            entertainment_area = pygame.draw.rect(self.screen, self.black, (140,450,610,150), 15)
+
+            #food area text
+            food_area_text = pygame.font.Font("freesansbold.ttf", 20)
+            food_area_text = food_area_text.render("Food", True, self.black, None)
+            food_area_textrect = food_area_text.get_rect()
+            food_area_text_center = (360,75)
+            self.screen.blit(food_area_text, food_area_text_center)
+
+            #home decor area text
+            home_decor_area_text = pygame.font.Font("freesansbold.ttf", 20)
+            home_decor_area_text = home_decor_area_text.render("Home Decor", True, self.black, None)
+            home_decor_area_textrect = home_decor_area_text.get_rect()
+            home_decor_area_text_center = (765,300)
+            self.screen.blit(home_decor_area_text, home_decor_area_text_center)
+
+            #entertainment area text
+            entertainment_area_text = pygame.font.Font("freesansbold.ttf", 20)
+            entertainment_area_text = entertainment_area_text.render("Entertainment", True, self.black, None)
+            entertainment_area_textrect = entertainment_area_text.get_rect()
+            entertainment_area_text_center = (360, 500)
+            self.screen.blit(entertainment_area_text, entertainment_area_text_center)
+
+        #Annie's Code
+        #The origin of the display, where x = 0 and y = 0, is the top left of the self.screen. Both axes increase positively towards the bottom right of the self.screen.
+        fontObj = pygame.font.Font('freesansbold.ttf', 14) 
+        budget = self.mC.getBudget()
+        budgetObj = Budget(40,25, self.screen, "Budget: ", budget, "freesansbold.ttf", 14)
+        budgetObj.draw()
+        # textObj1 = fontObj.render('Budget:',True,self.black,self.bisque)
+        # textRectObj1 = textObj1.get_rect()
+        # textRectObj1.center = (40,20)
+        # self.screen.blit(textObj1,textRectObj1) # draw budget
+
+        textObj2 = fontObj.render('Remaining:',True,self.black,self.bisque)
+        textRectObj2 = textObj2.get_rect()
+        textRectObj2.center = (50,80)
+        self.screen.blit(textObj2,textRectObj2)
+
+        textObj3 = fontObj.render('Shopping List:',True,self.black,self.bisque)
+        textRectObj3 = textObj3.get_rect()
+        textRectObj3.center = (60,140)
+        self.screen.blit(textObj3,textRectObj3)
+
+        textObj4 = fontObj.render('Cart:',True,self.black,self.bisque)
+        textRectObj4 = textObj4.get_rect()
+        textRectObj4.center = (30,370)
+        self.screen.blit(textObj4,textRectObj4)
+
+        pygame.draw.line(self.screen,self.black,(140,0),(140,600),15) # draw line
+
+    #IN PROGRESS
+    def handleEvent(self,event):
+        # if event.type == pygame.MOUSEBUTTONUP:
+        #     self.curPos = pygame.mouse.get_pos()
+        #     if  self.foodStoppoint.X < self.curPos[0] and self.curPos[0] < self.foodStoppoint.X + 30 \
+        #     and self.foodStoppoint.Y < self.curPos[1] and self.curPos[1] < self.foodStoppoint.Y + 27:
+        #         #self.screen.fill(self.white)
+        #         #self.screen.blit(shelving)
+        #         return 'Query'
+        #     if  self.homedecorStoppoint.X < self.curPos[0] and self.curPos[0] < self.homedecorStoppoint.X + 30 \
+        #     and self.homedecorStoppoint.Y < self.curPoss[1] and self.curPos[1] < self.homedecorStoppoint.Y + 27:
+        #         #self.screen.fill(white)
+        #         #self.screen.blit(shelving)
+        #         return 'Query'
+        #     if  self.entertainmentStoppoint.X < self.curPos[0] and self.curPos[0] < self.entertainmentStoppoint.X + 30 \
+        #     and self.entertainmentStoppoint.Y < self.curPos[1] and self.curPos[1] < self.entertainmentStoppoint.Y + 27:
+        #         #self.screen.fill(white)
+        #         #self.screen.blit(shelving) 
+        #         return 'Query' 
+
+
+        while True:
+            Events = pygame.event.get()
+            clickname = ""
+            clickstoresection = ""
+            for event in Events:
+                if event.type == QUIT:
+                    break
+                if event.type == MOUSEBUTTONDOWN:
+                    click = pygame.mouse.get_pos()
+                    for stoppoint in self.stoppointlist:
+                        if stoppoint.collision(click):
+                            clickname = stoppoint.name
+                            break
+            if clickname != "":
+                for StoreSection in self.StoreSectionlist:
+                    if StoreSection.name == clickname:
+                        clickstoresection = StoreSection
+            if clickstoresection != "":
+                self.displayStoreSection = True
+                self.draw()
+                clickstoresection.draw()
+            else:
+                self.displayStoreSection = False
+                self.draw()
