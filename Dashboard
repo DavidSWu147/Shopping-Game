@@ -21,7 +21,7 @@ class Cart(object):
         self.text = "Cart : \n"
         self.text = self.text + self.product+ "\n"
         if item.collision(click):
-            Cart.AddToCart(self.text)
+            newitem = Cart.AddToCart(self.text)
 
 class Budget:
     
