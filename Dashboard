@@ -59,13 +59,13 @@ class Remaining(object):
         self.renderabletext = self.font.render(self.text, True, (0,0,0))
 
     def initializeClasses(self):
-        self.storeItem = StoreItem(self)
+        self.Product = product(self)
 
     def collision(self, click):
         return self.collidepoint(click)
 
     def remaining(self):
-        self.remaining = self.masterClass.inputBudget.initialBudget - self.storeItem.product.price
+        self.remaining = self.masterClass.inputBudget.initialBudget - self.Product.price
 
     def draw(self):
         self.screen.blit(self.renderabletext, (self.x,self.y))  
