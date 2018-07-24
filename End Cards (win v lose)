@@ -81,7 +81,7 @@ while running:
     Winscreen.blit(name, (60, 275))
     Winscreen.blit(Debt1_Name, (30, 0))
     Winscreen.blit(Debt2_Name, (80, 25))
-    for i in range(len(test_product_list)):
+    for i in range(len(Cartlist)):
         Cartlist[i].draw(Positions[i], Winscreen)
     # WinCards()
 
