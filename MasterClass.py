@@ -8,7 +8,7 @@ from OverallStoreMap import OverallStoreMap
 from Shelving import Shelving
 from WinCards import WinCards
 from Help import Help
-
+from End_cards import End_cards
 '''
 @author Evan Degroote
 @author Kate Wilson
@@ -65,6 +65,7 @@ class MasterClass(object):
         self.shelving = Shelving(self)
         self.winCards = WinCards(self)
         self.help = Help(self)
+        self.End_cards = End_cards(self)
         
     def __str__(self):
         return 'Master Class'
@@ -88,6 +89,9 @@ class MasterClass(object):
                     elif command == 'Help':
                         self.currentClass = self.help
                         self.currentScreen = self.help.screen
+                    if Command == "End_cards"
+                        self.currentClass = self.End_cards
+                        self.currentScreen = self.End_cards.screen
                     elif command == 'WinCards':
                         self.currentClass = self.winCards
                         self.currentScreen = self.winCards.screen
