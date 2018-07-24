@@ -11,5 +11,20 @@ CheckFont = pygame.font.Font('freesansbold.ttf', 30)
 Button_name= CheckFont.render("Checkout", True, red)
 CheckButton= Button_name.get_rect()
 CheckButton_center = (180,390)
-self.screen.blit(Button_name, CheckButton_center)
+screen.blit(Button_name, CheckButton_center)
 pygame.display.update()
+
+
+
+while running: 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+#coding for the button to move the screen to new destination.
+        if event.type== pygame.MOUSEBUTTONDOWN:
+            click= pygame.mouse.get_pos()
+            for item in Cartlist:
+                if Button_name.Detectcollisions(click):
+                    return 'End_cards'
+                    
+                    
