@@ -27,6 +27,8 @@ class Cart(object):
             screen.blit(text,(x,i))
             text = fontObj.render(str(self.quantitiesBought[self.cartList[index]]),True,(0,0,0))
             screen.blit(text,(x+5,i-20))
+            text = fontObj.render(self.cartList[index].price,True,(0,0,0))
+            screen.blit(text,(x+18,i-20))
             index += 1
 
     def collision(self, click):
